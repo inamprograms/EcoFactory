@@ -95,19 +95,21 @@ To install and run EcoFactory Application locally, follow these steps:
 2. **Create Virtual Environment and Activate it**
 
     ```bash
-        coming soon!
+        python -m venv env #create virtual environment
+        ./env/Scripts/Activate.ps1 #activate the virtual environment
     ```
 3. **Install the packages:**
 
     ```bash
-        coming soon!
+        cd server 
+        pip install -r requirements.txt
     
     ```
 
 4. **Run the Application** For back-end 
 <br>
     ```bash
-        coming soon!
+        python app.py
     
     ```   
 5. **For Front-end**
