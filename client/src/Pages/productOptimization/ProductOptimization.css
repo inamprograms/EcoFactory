@@ -1,3 +1,6 @@
+#productOptimization{
+    background-color: "#2f3135" !important;
+}
 .icon-container {
     cursor: pointer;
 }
@@ -9,3 +12,29 @@
 .rotate-right {
     transform: rotate(0deg);
 }
+.heading3 {
+    background: linear-gradient(to right, #00b555 30%, rgba(0, 181, 85, 0.5) 30%, rgba(0, 181, 85, 0.5) 75%, #0076c3 75%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+
+
+.btnGradient {
+    background-image: linear-gradient(to right, #00b555 25%, #00b555 25%, #0076c3 75%, #0076c3 75%);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+  }  
+.btnGradient:hover {
+    background-image: linear-gradient(to right, #00b555 25%, #00b555 25%, #0076c3 75%, #0076c3 75%);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+  }  
