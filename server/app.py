@@ -37,6 +37,25 @@ def product_optimize():
     except ValueError as e:
         print("Error:", e)
         return jsonify({"error": "Internal Server Error"}), 500
+    
+    
+@app.route("/api/esg_guidelines", methods=['POST'])
+def esg_guidelines_checker():
+    
+    try:
+        query = request.json.get("query") 
+        response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        response_format={ "type": "json_object" },
+        messages=[
+            {"role": "user", "content": query}]
+        )
+        print(response.choices[0].message.content)
+        return response.choices[0].message.content
+    
+    except ValueError as e:
+        print("Error:", e)
+        return jsonify({"error": "Internal Server Error"}), 500
         
 
 
