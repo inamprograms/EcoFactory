@@ -6,17 +6,17 @@ export default function ProductOptimization() {
     return (
         <div style={{ display: 'flex', height: '100vh', minHeight: '400px' }}>
             <Sidebar collapsed={collapsed} style={{ display: collapsed ? "none" : "block" }}>
-                <h1>Hello</h1>
+                {/* side bar content */}
             </Sidebar>
             <main style={{ width: "100vw" }}>
                 <div onClick={() => setCollapsed(!collapsed)} style={{ cursor: "pointer" }}>
                     {/* <span class="big-icon" style={iconStyles}>{collapsed ? <>&#187;</>: <>&#171;</>}</span> */}
-                    <span className={`big-icon ${collapsed ? 'rotate-left' : 'rotate-right'}`} style={iconStyles}>{collapsed ? <>&#187;</>: <>&#171;</>}</span>
+                    <span className={`big-icon ${collapsed ? 'rotate-left' : 'rotate-right'}`} style={{...iconStyles, color: "#ccc"}}>{collapsed ? <>&#187;</>: <>&#171;</>}</span>
                 </div>
-                <div className="container bg-dark">
+                <div className="container-fluid bg-dark" style={{height: "100vh"}}>
                     <div className="row">
                         <div className="col">
-                            <p className='text-white'>Lorem ipsum dolor sit amet.</p>
+                            {/* main content */}
                         </div>
                     </div>
                 </div>
