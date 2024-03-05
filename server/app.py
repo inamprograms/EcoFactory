@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request 
 from flask_cors import CORS, cross_origin
 import os
+from consts.prompts import ProductDescription
 from openai import OpenAI
 
 from dotenv import load_dotenv
@@ -21,12 +22,13 @@ def hello_world():
 
 
 @app.route("/api/optimize", methods=['POST'])
-def product_optimize():
+def product_optimizer():
     
     try:
         query = request.json.get("query") 
+        query = ProductDescription + query
         response = client.chat.completions.create(
-        model="gpt-4-turbo-preview",
+        model="gpt-3.5-turbo",
         response_format={ "type": "json_object" },
         messages=[
             {"role": "user", "content": query}]
@@ -58,13 +60,14 @@ def esg_guidelines_advisor():
         return jsonify({"error": "Internal Server Error"}), 500
     
     
+    
 @app.route("/api/eco_fac_gpt", methods=['POST'])
 def gpt4():
     
     try:
         query = request.json.get("query") 
         response = client.chat.completions.create(
-        model="gpt-4-turbo-preview",
+        model="gpt-3.5-turbo",
         response_format={ "type": "json_object" },
         messages=[
             {"role": "user", "content": query}]
