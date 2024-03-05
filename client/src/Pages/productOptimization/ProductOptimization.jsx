@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { IoMdAttach } from "react-icons/io";
 import { Sidebar } from 'react-pro-sidebar';
+import colorBar from "./COLORBAR.png";
+import ICON_PRODUCT from "./ICON_PRODUCTS.svg";
+import ecofactor from "./LOGO_ECOFACTOR.png";
 import './ProductOptimization.css'; // Import CSS file for additional styles
 import cogwheel from "./cogwheel-2.svg";
-
 export default function ProductOptimization() {
     const [collapsed, setCollapsed] = useState(false);
     return (
@@ -13,6 +15,37 @@ export default function ProductOptimization() {
                 {/* side bar content  */}
                 {/* Aleeza you have to work here */}
                 <div className="container-fluid" style={{ backgroundColor: "#2f3135", height: "100vh" }}>
+                    <div className="row">
+                        <div className="col-12"><img src={colorBar} alt="" style={{width: "100%"}} /></div>
+                    </div>
+                    <div className="row">
+                        <div className="col px-4 py-2"><img src={ecofactor} alt="" style={{width: "100%"}} /></div>
+                    </div>
+                    <div className="row px-3">
+                        <div className="col " style={{backgroundColor: "#494c51"}}>
+                            <h6 className='text-white text-center' >Inventory</h6>
+                            <div className="row">
+                                <div className="col ms-2 me-1" style={{backgroundColor: "#2f3135", color: "white"}}>
+                                    <img src={ICON_PRODUCT} alt="" style={{color: "white"}}/>
+                                </div>
+                                <div className="col me-1" style={{backgroundColor: "#2f3135", color: "white"}}>...</div>
+                                <div className="col me-1" style={{backgroundColor: "#2f3135", color: "white"}}>...</div>
+                                <div className="col me-2" style={{backgroundColor: "#2f3135", color: "white"}}>...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col"></div>
+                    </div>
+                    <div className="row">
+                        <div className="col"></div>
+                    </div>
+                    <div className="row">
+                        <div className="col"></div>
+                    </div>
+                    <div className="row">
+                        <div className="col"></div>
+                    </div>
                 </div>
             </Sidebar>
             <main style={{ width: "100vw", backgroundColor: "#2f3135" }}>
