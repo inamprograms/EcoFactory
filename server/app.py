@@ -26,6 +26,25 @@ def product_optimize():
     try:
         query = request.json.get("query") 
         response = client.chat.completions.create(
+        model="gpt-4-turbo-preview",
+        response_format={ "type": "json_object" },
+        messages=[
+            {"role": "user", "content": query}]
+        )
+        print(response.choices[0].message.content)
+        return response.choices[0].message.content
+    
+    except ValueError as e:
+        print("Error:", e)
+        return jsonify({"error": "Internal Server Error"}), 500
+    
+    
+@app.route("/api/advisor", methods=['POST'])
+def esg_guidelines_advisor():
+    
+    try:
+        query = request.json.get("query") 
+        response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         response_format={ "type": "json_object" },
         messages=[
@@ -39,13 +58,13 @@ def product_optimize():
         return jsonify({"error": "Internal Server Error"}), 500
     
     
-@app.route("/api/esg_guidelines", methods=['POST'])
-def esg_guidelines_checker():
+@app.route("/api/eco_fac_gpt", methods=['POST'])
+def gpt4():
     
     try:
         query = request.json.get("query") 
         response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4-turbo-preview",
         response_format={ "type": "json_object" },
         messages=[
             {"role": "user", "content": query}]
