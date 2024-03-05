@@ -46,13 +46,14 @@ export default function SBar({ collapsed }) {
         { icon: ICON_ESG, title: 'History chat conversation 2' },
 
 
+
     ]
 
     return (
         <Sidebar className='sideBar' collapsed={collapsed} style={{ display: collapsed ? "none" : "block", width: '23vw', position: "relative" }}>
             {/* side bar content  */}
             {/* Aleeza you have to work here */}
-            <div className="container-fluid" style={{ backgroundColor: "#2f3135", height: '100vh', overflow: 'hidden' }}>
+            <div className="container-fluid sideBar-scroll " style={{ backgroundColor: "#2f3135", height: '100vh',}}>
                 <img src={colorBar} alt="" style={{ width: "100%", position: "relative", top: "-14px", left: "-7px" }} />
                 <div className="row">
                     <div className="col px-4 py-2 my-2 "><img src={ecofactor} alt="" style={{ width: "90%", marginLeft: '.7rem' }} /></div>
@@ -115,8 +116,8 @@ export default function SBar({ collapsed }) {
                         })}
                     </div>
                 </div>
-                <div className="row text-white " style={{ textAlign: "center", width: "100%", }}>
-                    <div className="col mt-5 ">
+                <div className="row text-white " style={{ backgroundColor: "#2f3135", textAlign: "center", width: "100%", position : 'absolute' , bottom : '0px'}}>
+                    <div className="col mt-2 " >
                         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }} >
                             <img src={avatar} alt="" style={{ width: '2.8rem', marginTop: "-16px" }} />
 
