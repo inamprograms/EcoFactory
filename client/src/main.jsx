@@ -1,13 +1,16 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import "./index.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import DataContextProvider from "./Context/DataContext.jsx";
+import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <DataContextProvider>
     <React.StrictMode>
-      <App />
+      <div>
+
+        <App />
+      </div>
     </React.StrictMode>
   </DataContextProvider>
 );
