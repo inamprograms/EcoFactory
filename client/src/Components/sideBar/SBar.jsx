@@ -1,24 +1,23 @@
 import { useState } from 'react';
 import { Sidebar } from 'react-pro-sidebar';
-import colorBar from "../../Assets/ICONS/COLORBAR.png";
-import ICON_PRODUCT from "../../Assets/ICONS/ICON_PRODUCTS.svg";
-import ICON_MATERIAL from '../../Assets/ICONS/ICON_MATERIALS.svg'
-import ICON_SUPLIERS from '../../Assets/ICONS/ICON_SUPPLIERS.svg'
-import ICON_GUIDLINES from '../../Assets/ICONS/ICON_GUIDELINE_DATABASE.svg'
-import ICON_OPTIMIZATION from '../../Assets/ICONS/ICON_OPTIMIZER.svg'
-import ICON_ESG from '../../Assets/ICONS/ICON_ESG_GUIDELINE.svg'
-import ICON_INTEGRATION from '../../Assets/ICONS/ICON_INTEGRATIONS.svg'
-import ecofactor from "../../Assets/ICONS/LOGO_ECOFACTOR.png";
-import avatar from "../../Assets/ICONS/AVATAR.png";
-import ICON_SUN from "../../Assets/ICONS/ICON_SUN.svg";
-import ICON_MOON from "../../Assets/ICONS/ICON_MOON.svg";
 import BADGE_PRO from "../../Assets/ICONS/BADGE_PRO.svg";
+import colorBar from "../../Assets/ICONS/COLORBAR.png";
 import ICON_CUSTOM_GPT from "../../Assets/ICONS/ICON_CUSTOM_GPT.svg";
+import ICON_ESG from '../../Assets/ICONS/ICON_ESG_GUIDELINE.svg';
 import GPT_AI from "../../Assets/ICONS/ICON_GPT4.svg";
+import ICON_GUIDLINES from '../../Assets/ICONS/ICON_GUIDELINE_DATABASE.svg';
+import ICON_INTEGRATION from '../../Assets/ICONS/ICON_INTEGRATIONS.svg';
+import ICON_MATERIAL from '../../Assets/ICONS/ICON_MATERIALS.svg';
+import ICON_MOON from "../../Assets/ICONS/ICON_MOON.svg";
+import ICON_OPTIMIZATION from '../../Assets/ICONS/ICON_OPTIMIZER.svg';
+import ICON_PRODUCT from "../../Assets/ICONS/ICON_PRODUCTS.svg";
+import ICON_SUN from "../../Assets/ICONS/ICON_SUN.svg";
+import ICON_SUPLIERS from '../../Assets/ICONS/ICON_SUPPLIERS.svg';
+import ecofactor from "../../Assets/ICONS/LOGO_ECOFACTOR.png";
 
 import { BiDotsHorizontalRounded } from "react-icons/bi";
-import { Link, useLocation } from "react-router-dom";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import { Link, useLocation } from "react-router-dom";
 
 export default function SBar({ collapsed }) {
     const [showChats, setShowChats] = useState(true);
@@ -131,10 +130,10 @@ export default function SBar({ collapsed }) {
                 <div className="row bottom-user text-white  " style={{ backgroundColor: "#2f3135", textAlign: "center", width: "100%", }}>
                     <div className="col mt-5 " >
                         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }} >
-                            <img src={avatar} alt="" style={{ width: '2.8rem', marginTop: "-16px" }} />
+                            <img className='rounded-pill' src={"https://camo.githubusercontent.com/1e6de73a5a5d1800c3f18f294e4b019466d6daa7ac4ddbe713afc5e3ac062547/68747470733a2f2f6d656469612e6c6963646e2e636f6d2f646d732f696d6167652f4434443033415148556d6b357863444d6574412f70726f66696c652d646973706c617970686f746f2d736872696e6b5f3430305f3430302f302f313639333430353830343034313f653d3137313532313238303026763d6265746126743d307a4b74676b73684967694439786d6e456a425a7158755731343547774e5676386f6d3958576b424f7259"} alt="" style={{ width: '2.8rem', marginTop: "-16px" }} />
 
                             <div className='ms-2'>
-                                <strong className='text-start d-block'>Julia Olivera <img style={{ width: '2.5rem' }} src={BADGE_PRO} className='float-end' alt="" /></strong>
+                                <strong className='text-start d-block'>Katrina  <img style={{ width: '2.5rem' }} src={BADGE_PRO} className='float-end' alt="" /></strong>
                                 <p className='text-start' style={{ fontSize: ".7rem", color: "#999999" }}>Usage count: <span style={{ color: "#FFFFFF" }}>11</span> chats | <span style={{ color: "#FFFFFF" }}>28.k</span> Token</p>
                             </div>
                         </div>
