@@ -18,7 +18,7 @@ import GPT_AI from "../../Assets/ICONS/ICON_GPT4.svg";
 
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { Link, useLocation } from "react-router-dom";
-import { MdKeyboardArrowUp } from "react-icons/md";
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 
 export default function SBar({ collapsed }) {
     const [showChats, setShowChats] = useState(true);
@@ -107,7 +107,7 @@ export default function SBar({ collapsed }) {
                         <div className="row">
                             <div className="col mx-3">
                                 <div className={`${showChats ? "mb-2" : "mb-0"}`}>
-                                    <button onClick={() => setShowChats((prev) => !prev)} className='border-0 bg-transparent text-white me-4  fs-4'><MdKeyboardArrowUp /></button> <span style={{ fontWeight: 'normal', color: "#666666", fontSize: "1.1rem" }}>chats</span>
+                                    <button onClick={() => setShowChats((prev) => !prev)} className='border-0 bg-transparent text-white me-4  fs-4'>{showChats ? <MdKeyboardArrowUp />  : <MdKeyboardArrowDown /> }</button> <span style={{ fontWeight: 'normal', color: "#666666", fontSize: "1.1rem" }}>chats</span>
                                 </div>
                                {showChats && historyChats.map((currElm) => {
                                     return (
