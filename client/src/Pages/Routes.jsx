@@ -9,7 +9,7 @@ function CustomRoutes() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<ProductOptimization />} />
-          <Route path="/ESG_Guideline_Checker" element={<ESGGuidelineChecker />} />
+          <Route path="/esg-guidlines" element={<ESGGuidelineChecker />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>
