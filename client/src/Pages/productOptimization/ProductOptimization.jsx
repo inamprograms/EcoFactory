@@ -34,7 +34,8 @@ export default function ProductOptimization() {
                             <div className="col">
                                 <div className='pt-4'>
                                     <div className="row">
-                                        <div className="col-11">
+                                        <div className="col-3"></div>
+                                        <div className="col-8">
 
                                             <select className="form-select" style={{ cursor: 'pointer' }} aria-label="Default select example">
                                                 <option selected>Select product to optimize</option>
