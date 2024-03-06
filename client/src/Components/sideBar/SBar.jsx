@@ -4,16 +4,22 @@ import BADGE_PRO from "../../Assets/ICONS/BADGE_PRO.svg";
 import colorBar from "../../Assets/ICONS/COLORBAR.png";
 import ICON_CUSTOM_GPT from "../../Assets/ICONS/ICON_CUSTOM_GPT.svg";
 import ICON_ESG from '../../Assets/ICONS/ICON_ESG_GUIDELINE.svg';
+import ICON_ESG_ACTIVE from '../../Assets/ICONS/ICON_ESG_GUIDELINE active.svg';
+
 import GPT_AI from "../../Assets/ICONS/ICON_GPT4.svg";
+import GPT_AI_ACTIVE from "../../Assets/ICONS/ICON_GPT4 active.svg";
+
 import ICON_GUIDLINES from '../../Assets/ICONS/ICON_GUIDELINE_DATABASE.svg';
 import ICON_INTEGRATION from '../../Assets/ICONS/ICON_INTEGRATIONS.svg';
 import ICON_MATERIAL from '../../Assets/ICONS/ICON_MATERIALS.svg';
 import ICON_MOON from "../../Assets/ICONS/ICON_MOON.svg";
 import ICON_OPTIMIZATION from '../../Assets/ICONS/ICON_OPTIMIZER.svg';
+import ICON_OPTIMIZATION_ACTIVE from '../../Assets/ICONS/ICON_OPTIMIZER active.svg';
+
 import ICON_PRODUCT from "../../Assets/ICONS/ICON_PRODUCTS.svg";
 import ICON_SUN from "../../Assets/ICONS/ICON_SUN.svg";
 import ICON_SUPLIERS from '../../Assets/ICONS/ICON_SUPPLIERS.svg';
-import ecofactor from "../../Assets/ICONS/LOGO_ECOFACTOR.png";
+import ecofactor from "../../Assets/ICONS/LOGO_ECOFACTOR_FINAL (1).svg";
 
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
@@ -21,7 +27,7 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function SBar({ collapsed }) {
     const [showChats, setShowChats] = useState(true);
-    
+
 
     const path = useLocation().pathname
     console.log(path);
@@ -34,9 +40,9 @@ export default function SBar({ collapsed }) {
     ]
 
     const pages = [
-        { icon: ICON_OPTIMIZATION, title: 'Products Optimization', to: '/' },
-        { icon: ICON_ESG, title: 'ESG Guidline Checker', to: '/esg-guidlines' },
-        { icon: GPT_AI, title: 'New Regular ChatGPT 4', to: '' },
+        { icon: ICON_OPTIMIZATION, iconActive: ICON_OPTIMIZATION_ACTIVE, title: 'Products Optimization', to: '/' },
+        { icon: ICON_ESG, iconActive: ICON_ESG_ACTIVE, title: 'ESG Guidline Checker', to: '/esg-guidlines' },
+        { icon: GPT_AI, iconActive: GPT_AI_ACTIVE, title: 'New Regular ChatGPT 4', to: '' },
         { icon: ICON_CUSTOM_GPT, title: 'Create Custom GPT', subTitle: "(Upgrade plan)", disable: true, to: '' },
         { icon: ICON_INTEGRATION, title: 'Integrations', subTitle: "(Upgrade plan)", disable: true, to: '' },
 
@@ -59,7 +65,7 @@ export default function SBar({ collapsed }) {
                 <div>
                     <img src={colorBar} alt="" style={{ width: "100%", position: "relative", top: "-14px", left: "-7px" }} />
                     <div className="row">
-                        <div className="col px-4 py-2 my-2 "><img src={ecofactor} alt="" style={{ width: "90%", marginLeft: '.7rem' }} /></div>
+                        <div className="col px-4 my-2 "><img src={ecofactor} alt="" style={{ height: '4.2rem', width: "100%", marginLeft: '.7rem' }} /></div>
                     </div>
 
                     <div className="row ">
@@ -90,7 +96,7 @@ export default function SBar({ collapsed }) {
                                         <>
                                             <Link to={currElm.to} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", cursor: currElm.disable && "not-allowed", color: currElm.disable ? "#666" : currElm.to === path ? "#1bd4ad" : "#f2f2f2", textDecoration: "none", marginBottom: ".7rem" }}>
                                                 <span>
-                                                    <img src={currElm.icon} alt="icon" style={{ width: '1.5rem', marginRight: ".9rem" }} />
+                                                    <img src={currElm.to === path ? currElm.iconActive : currElm.icon} alt="icon" style={{ width: '1.5rem', marginRight: ".9rem" }} />
                                                     <span>{currElm.title} <small>{currElm.subTitle}</small></span>
                                                 </span>
                                                 <BiDotsHorizontalRounded />
@@ -106,9 +112,9 @@ export default function SBar({ collapsed }) {
                         <div className="row">
                             <div className="col mx-3">
                                 <div className={`${showChats ? "mb-2" : "mb-0"}`}>
-                                    <button onClick={() => setShowChats((prev) => !prev)} className='border-0 bg-transparent text-white me-4  fs-4'>{showChats ? <MdKeyboardArrowUp />  : <MdKeyboardArrowDown /> }</button> <span style={{ fontWeight: 'normal', color: "#666666", fontSize: "1.1rem" }}>chats</span>
+                                    <button onClick={() => setShowChats((prev) => !prev)} className='border-0 bg-transparent text-white me-4  fs-4'>{showChats ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</button> <span style={{ fontWeight: 'normal', color: "#666666", fontSize: "1.1rem" }}>chats</span>
                                 </div>
-                               {showChats && historyChats.map((currElm) => {
+                                {showChats && historyChats.map((currElm) => {
                                     return (
                                         <>
                                             <Link style={{ display: "flex", justifyContent: "space-between", alignItems: "center", color: '#f2f2f2', textDecoration: "none", marginBottom: ".7rem" }}>

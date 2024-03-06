@@ -66,7 +66,7 @@ export default function ESGGuidelineChecker() {
                                     <div className="col"></div>
                                     <div className="col-11">
                                         <div className="input-group mb-3" style={{ border: "1px black solid", borderRadius: "20px" }}>
-                                            <button className="input-group-text" id="basic-addon1" style={{ fontSize: "3rem", backgroundColor: "white", borderTopLeftRadius: "20px", borderBottomLeftRadius: "20px", color: "#c1c1c1", border: "none", borderRight: "none" }}><IoMdAttach /></button>
+                                            <button className="input-group-text" id="basic-addon1" style={{ fontSize: "1.8rem", backgroundColor: "white", borderTopLeftRadius: "20px", borderBottomLeftRadius: "20px", color: "#494c51", border: "none", borderRight: "none" }}><IoMdAttach /></button>
                                             <input type="text" className="form-control" placeholder="Please type or say what kind of optimizations you are looking for ?" aria-label="Username" aria-describedby="basic-addon1" />
                                             <span className="input-group-text" id="basic-addon1" style={{ backgroundColor: "white", borderTopRightRadius: "20px", borderBottomRightRadius: "20px" }}>
                                                 <button className='btn btnGradient' style={{ backgroundColor: "#0076c3" }}>Submit</button>

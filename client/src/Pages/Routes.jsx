@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NoPage from "./NoPage";
 import ESGGuidelineChecker from "./esgGuidelineChecker/ESGGuidelineChecker";
 import ProductOptimization from "./productOptimization/ProductOptimization";
+
 function CustomRoutes() {
   return (
     <>
