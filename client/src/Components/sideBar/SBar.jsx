@@ -21,6 +21,8 @@ import { Link, useLocation } from "react-router-dom";
 import { MdKeyboardArrowUp } from "react-icons/md";
 
 export default function SBar({ collapsed }) {
+    const [showChats, setShowChats] = useState(true);
+    
 
     const path = useLocation().pathname
     console.log(path);
@@ -60,9 +62,6 @@ export default function SBar({ collapsed }) {
                     <div className="row">
                         <div className="col px-4 py-2 my-2 "><img src={ecofactor} alt="" style={{ width: "90%", marginLeft: '.7rem' }} /></div>
                     </div>
-
-
-
 
                     <div className="row ">
                         <div className="col mx-3 me-1 rounded p-2 " style={{ backgroundColor: "#494c51", }}>
@@ -107,10 +106,10 @@ export default function SBar({ collapsed }) {
 
                         <div className="row">
                             <div className="col mx-3">
-                                <div className='mb-2'>
-                                    <button className='border-0 bg-transparent text-white me-4  fs-4'><MdKeyboardArrowUp /></button> <span style={{ fontWeight: 'normal', color: "#666666", fontSize: "1.1rem" }}>chats</span>
+                                <div className={`${showChats ? "mb-2" : "mb-0"}`}>
+                                    <button onClick={() => setShowChats((prev) => !prev)} className='border-0 bg-transparent text-white me-4  fs-4'><MdKeyboardArrowUp /></button> <span style={{ fontWeight: 'normal', color: "#666666", fontSize: "1.1rem" }}>chats</span>
                                 </div>
-                                {historyChats.map((currElm) => {
+                               {showChats && historyChats.map((currElm) => {
                                     return (
                                         <>
                                             <Link style={{ display: "flex", justifyContent: "space-between", alignItems: "center", color: '#f2f2f2', textDecoration: "none", marginBottom: ".7rem" }}>
