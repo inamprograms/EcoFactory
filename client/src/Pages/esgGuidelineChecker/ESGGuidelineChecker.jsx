@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import Sidebar from '../../Components/sideBar/SBar';
+import React, { useState } from 'react';
 import { IoMdAttach } from "react-icons/io";
+import Sidebar from '../../Components/sideBar/SBar';
 import '../productOptimization/ProductOptimization.css'; // Import CSS file for additional styles
 import cogwheel from "../productOptimization/cogwheel-2.svg";
 
@@ -23,24 +23,31 @@ export default function ESGGuidelineChecker() {
                                 <div className="row">
                                     <div className="col-1"></div>
                                     <div className="col-11">
-                                        <h2 style={textStyle} className='pt-4'>ESG Guidline Checker</h2>
+                                        <h2 style={textStyle} className='pt-4'>ESG Guideline Checker</h2>
 
                                     </div>
                                 </div>
                             </div>
                             <div className="col">
                                 <div className='pt-4'>
-                                    <div className="row">
-                                        <div className="col-11">
+                                    <div className="row" >
+                                        <div className="col">
                                             <select className="form-select" style={{ cursor: 'pointer' }} aria-label="Default select example">
-                                                <option selected>Select product to optimize</option>
+                                                <option selected style={{}}>Select product to optimize</option>
                                                 <option value="1">One</option>
                                                 <option value="2">Two</option>
                                                 <option value="3">Three</option>
                                             </select>
-
                                         </div>
-                                        <div className="col-1"></div>
+                                        <div className="col me-5" style={{ position: 'relative' }}>
+                                            <select className="form-select" style={{ cursor: 'pointer' }} aria-label="Default select example">
+                                                <option selected>Select ESG Guideline</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                            <h3 style={{ color: "#a39e9e", position: "absolute", bottom: "-14%", left: "-5%" }}>+</h3>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

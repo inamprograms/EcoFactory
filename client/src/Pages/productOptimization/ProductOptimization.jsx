@@ -43,7 +43,6 @@ export default function ProductOptimization() {
                                                 <option value="2">Two</option>
                                                 <option value="3">Three</option>
                                             </select>
-
                                         </div>
                                         <div className="col-1"></div>
                                     </div>
