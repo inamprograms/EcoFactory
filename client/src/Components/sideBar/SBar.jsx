@@ -36,8 +36,8 @@ export default function SBar({ collapsed }) {
         { icon: ICON_OPTIMIZATION, title: 'Products Optimization', to: '/' },
         { icon: ICON_ESG, title: 'ESG Guidline Checker', to: '/esg-guidlines' },
         { icon: GPT_AI, title: 'New Regular ChatGPT 4', to: '' },
-        { icon: ICON_CUSTOM_GPT, title: 'Create Custom GPT', subTitle: "Upgrade plan", disable: true, to: '' },
-        { icon: ICON_INTEGRATION, title: 'Integrations', subTitle: "Upgrade plan", disable: true, to: '' },
+        { icon: ICON_CUSTOM_GPT, title: 'Create Custom GPT', subTitle: "(Upgrade plan)", disable: true, to: '' },
+        { icon: ICON_INTEGRATION, title: 'Integrations', subTitle: "(Upgrade plan)", disable: true, to: '' },
 
     ]
 
@@ -80,10 +80,10 @@ export default function SBar({ collapsed }) {
                         {pages.map((currElm) => {
                             return (
                                 <>
-                                    <Link style={{ display: "flex", justifyContent: "space-between", alignItems: "center", cursor: currElm.disable && "not-allowed", color: currElm.disable ? "#666" : currElm.to === path ? "#1bd4ad" : "#f2f2f2", textDecoration: "none", marginBottom: ".7rem" }}>
+                                    <Link to={currElm.to} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", cursor: currElm.disable && "not-allowed", color: currElm.disable ? "#666" : currElm.to === path ? "#1bd4ad" : "#f2f2f2", textDecoration: "none", marginBottom: ".7rem" }}>
                                         <span>
                                             <img src={currElm.icon} alt="icon" style={{ width: '1.5rem', marginRight: ".9rem" }} />
-                                            <span>{currElm.title}</span>
+                                            <span>{currElm.title} <small>{currElm.subTitle}</small></span>
                                         </span>
                                         <BiDotsHorizontalRounded />
                                     </Link>
@@ -98,7 +98,7 @@ export default function SBar({ collapsed }) {
                 <div className="row">
                     <div className="col mx-3">
                         <div className='mb-2'>
-                            <button className='border-0 bg-transparent text-white me-4 fs-4'><MdKeyboardArrowUp /></button> <span style={{ color: "#666666", fontSize: "1.1rem" }}>chats</span>
+                            <button className='border-0 bg-transparent text-white me-4  fs-4'><MdKeyboardArrowUp /></button> <span style={{ fontWeight: 'normal', color: "#666666", fontSize: "1.1rem" }}>chats</span>
                         </div>
                         {historyChats.map((currElm) => {
                             return (

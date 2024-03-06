@@ -22,8 +22,14 @@
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-family: "Roboto", sans-serif;
+  font-weight: 'bold';
 }
-
+.main-text{
+    font-family: "Roboto", sans-serif;
+    margin-top: .5rem;
+ 
+}
 .btnGradient {
   background-image: linear-gradient(
     to right,
@@ -34,9 +40,9 @@
   );
   border: none;
   color: white;
-  padding: 10px 20px;
+  padding: 8px 30px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 12px;
   font-size: 16px;
 }
 .btnGradient:hover {
@@ -71,7 +77,10 @@
     border-color: black !important;
     background-color: rgb(14, 14, 14) !important;
 }
-
+.sideBar{
+    font-family: "Roboto Condensed", sans-serif !important;
+    font-weight: 300;
+  }
 /* MEDIA QUERY */
 
 @media screen and (min-width: 1534px) and (max-width: 1636px) {

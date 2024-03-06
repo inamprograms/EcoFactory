@@ -49,7 +49,7 @@ export default function ESGGuidelineChecker() {
                             <div className="col d-flex flex-column justify-content-center align-items-center" style={{ margin: "0 auto", maxWidth: "800px" }}>
                                 <div><img src={cogwheel} style={{ width: "40px" }} alt="cogwheel" /></div>
                                 <h3 className='heading3 text-center'>&nbsp; Just select the product and relative ESG<br /> Guidlin to check complience </h3>
-                                <p>&nbsp; &nbsp; Here we must include a clear and simple explanation about this functionality, using similar <br /> amount of texts, avoiding too short texts that provide weak information, also avoiding long text.</p>
+                                <p className='main-text'>&nbsp; &nbsp; Here we must include a clear and simple explanation about this functionality, using similar <br /> amount of texts, avoiding too short texts that provide weak information, also avoiding long text.</p>
                             </div>
                         </div>
 
@@ -88,7 +88,8 @@ const iconStyles = {
 };
 
 const textStyle = {
-    fontFamily: "'Roboto', sans-serif",
+    fontFamily: '"Roboto", sans-serif',
+    fontWeight: 700,
 };
 
 

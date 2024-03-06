@@ -47,9 +47,9 @@ export default function ProductOptimization() {
                         </div>
                         <div className="row" style={{ backgroundColor: "#e6e6e6", height: "70%" }}>
                             <div className="col d-flex flex-column justify-content-center align-items-center" style={{ margin: "0 auto", maxWidth: "800px" }}>
-                                <div><img src={cogwheel} style={{ width: "40px" }} alt="cogwheel" /></div>
+                                <div><img src={cogwheel} style={{width : '40px'}} alt="cogwheel" /></div>
                                 <h3 className='heading3'>&nbsp; Just select the product you want to optimize,<br /> and describe below what you want to optimize...</h3>
-                                <p>&nbsp; &nbsp; Here we must include a clear and simple explanation about this functionality, using similar <br /> amount of texts, avoiding too short texts that provide weak information, also avoiding long text.</p>
+                                <p className='main-text'>&nbsp; &nbsp; Here we must include a clear and simple explanation about this functionality, using similar <br /> amount of texts, avoiding too short texts that provide weak information, also avoiding long text.</p>
                             </div>
                         </div>
 
@@ -88,5 +88,6 @@ const iconStyles = {
 };
 
 const textStyle = {
-    fontFamily: "'Roboto', sans-serif",
+    fontFamily: '"Roboto", sans-serif',
+    fontWeight: 700,
 };
