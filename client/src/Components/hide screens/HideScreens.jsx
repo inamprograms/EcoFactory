@@ -5,7 +5,7 @@ const HideScreens = () => {
       <div className="col-1 col-sm-2" >
       </div>
       <div className="col-10 col-sm-8 text-center d-flex align-items-center justify-content-center" >
-        <p style={contentStyle}>Enjoy our software on desktop screens exclusively.</p>
+        <p style={contentStyle}>Welcome to ECOFACTOR, This is a prototype project. At this stage, it was designed only for desktop computers. Please access the same page URL via a desktop computer to view this prototype. Thanks</p>
       </div>
       <div className="col-1 col-sm-2" >
       </div>

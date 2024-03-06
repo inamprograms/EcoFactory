@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { IoMdAttach } from "react-icons/io";
+import Sidebar from '../../Components/sideBar/SBar';
+import { DataContext } from '../../Context/DataContext';
 import './ProductOptimization.css'; // Import CSS file for additional styles
 import cogwheel from "./cogwheel-2.svg";
-import Sidebar from '../../Components/sideBar/SBar'
+
 
 export default function ProductOptimization() {
+    const {lightTheme, setLightTheme} = useContext(DataContext)
+
     const [collapsed, setCollapsed] = useState(false);
     return (
         <div id='productOptimization' style={{ display: 'flex', height: '100vh', minHeight: '400px' }} >
