@@ -12,7 +12,10 @@ app = Flask(__name__)
 cors = CORS(app, resources={r'*': {'origins':'*'}})
 
 client = OpenAI()
+
 openai_api_key = os.getenv('OPENAI_API_KEY')
+
+print("openai_api_key -> ", openai_api_key)
 
 @cross_origin(origins='*')
 

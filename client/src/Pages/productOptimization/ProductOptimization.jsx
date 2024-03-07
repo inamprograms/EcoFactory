@@ -1,22 +1,64 @@
-import { useState } from 'react';
+import {  useState } from 'react';
 import { IoMdAttach } from "react-icons/io";
+import Sidebar from '../../Components/sideBar/SBar';
 import './ProductOptimization.css'; // Import CSS file for additional styles
 import cogwheel from "./cogwheel-2.svg";
-import Sidebar from '../../Components/sideBar/SBar'
+import Spinner from '../../Components/loader/Spinner';
+
 
 export default function ProductOptimization() {
     const [collapsed, setCollapsed] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [prompt, setPrompt] = useState('');
+    const [promptsArr, setPromptsArr] = useState([]);
+    const [responseArr, setresponseArr] = useState([]);
+    const [typing, setTyping] = useState(false);
+    
+    const sendMessage = (text) => {
+        setPromptsArr([...promptsArr, { text, sender: 'user' }]);
+        generateBotResponse(text);
+      };
+    
+      const generateBotResponse = (userMessage) => {
+        const botResponse = `You said: "${userMessage}"`;
+        setTyping(true);
+        setTimeout(() => {
+          setPromptsArr((prevPrompts) => [
+            ...prevPrompts,
+            { text: botResponse, sender: 'bot' }
+          ]);
+          setTyping(false);
+        }, 3000);
+      };
+    
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        if (prompt.trim() !== '') {
+          sendMessage(prompt);
+          setPrompt('');
+        }
+      };
+    
+
+
+
+
+
+
+
+
+
     return (
         <div id='productOptimization' style={{ display: 'flex', height: '100vh', minHeight: '400px' }} >
 
             <Sidebar collapsed={collapsed} />
-            <main className='main' style={{ width: collapsed ? "100vw" : "77vw", backgroundColor: "#2f3135" }}>
+            <main className='main' style={{ width: collapsed ? "100vw" : "77vw", backgroundColor: "#2f3135", }}>
                 <div onClick={() => setCollapsed(!collapsed)} style={{ cursor: "pointer", color: "#c1c1c1" }}>
                     {/* <span class="big-icon" style={iconStyles}>{collapsed ? <>&#187;</>: <>&#171;</>}</span> */}
-                    <span className={`big-icon ${collapsed ? 'rotate-left' : 'rotate-right'}`} style={{ ...iconStyles, color: "#ccc" }}>{collapsed ? <>&#187;</> : <>&#171;</>}</span>
+                    <span className={`big-icon ${collapsed ? 'rotate-left' : 'rotate-right'}`} style={{ ...iconStyles, color: "#ccc", marginLeft: collapsed ? '-3px' : '-10px' }}>{collapsed ? <>&#187;</> : <>&#171;</>}</span>
                 </div>
                 <div className="container-fluid d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
-                    <div className="container-fluid" style={{ height: "96vh" }}>
+                    <div className="container-fluid" style={{ height: "96vh", display: 'flex', flexDirection: 'column' }}>
                         <div className="row" style={{ backgroundColor: "#c1c1c1", height: "15%", borderTopLeftRadius: "25px", borderTopRightRadius: "25px" }}>
                             <div className="col" >
                                 <div className="row">
@@ -30,7 +72,8 @@ export default function ProductOptimization() {
                             <div className="col">
                                 <div className='pt-4'>
                                     <div className="row">
-                                        <div className="col-11">
+                                        <div className="col-3"></div>
+                                        <div className="col-8">
 
                                             <select className="form-select" style={{ cursor: 'pointer' }} aria-label="Default select example">
                                                 <option selected>Select product to optimize</option>
@@ -38,31 +81,49 @@ export default function ProductOptimization() {
                                                 <option value="2">Two</option>
                                                 <option value="3">Three</option>
                                             </select>
-
                                         </div>
                                         <div className="col-1"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="row" style={{ backgroundColor: "#e6e6e6", height: "70%" }}>
+                        {promptsArr.length === 0 && <div className="row" style={{ backgroundColor: "#e6e6e6", height: "70%" }}>
                             <div className="col d-flex flex-column justify-content-center align-items-center" style={{ margin: "0 auto", maxWidth: "800px" }}>
-                                <div><img src={cogwheel} style={{width : '40px'}} alt="cogwheel" /></div>
+                                <div><img src={cogwheel} style={{ width: '40px' }} alt="cogwheel" /></div>
                                 <h3 className='heading3'>&nbsp; Just select the product you want to optimize,<br /> and describe below what you want to optimize...</h3>
                                 <p className='main-text'>&nbsp; &nbsp; Here we must include a clear and simple explanation about this functionality, using similar <br /> amount of texts, avoiding too short texts that provide weak information, also avoiding long text.</p>
                             </div>
-                        </div>
+                        </div>}
+
+                        {/* show prompts */}
+                        {promptsArr.length !== 0 && (
+                            <div className="prompt-scroll-box row " style={{ backgroundColor: "#e6e6e6", height: "70%" }}>
+                                <div className="scroll-inner ">
+                                    <div className=" row prompts px-5 pt-4" style={{ backgroundColor: "#e6e6e6", height: "70%" }}>
+
+                                        {promptsArr.map((prompt, index) => (
+                                            <div key={index} className="mt-2">
+                                                <strong className='fs-4'>{prompt.sender}</strong>
+                                                <p className='mt-0'>{prompt.text}</p>
+                                            </div>
+                                        ))}
+                                        {typing && <div className="message bot">...</div>}
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        )}
 
                         <div className="row" style={{ backgroundColor: "#e6e6e6", height: "15%", borderBottomLeftRadius: "25px", borderBottomRightRadius: "25px" }}>
-                            <div className="col">
+                            <div className="col " style={{ backgroundColor: "#e6e6e6", borderBottomLeftRadius: "25px", borderBottomRightRadius: "25px" }}>
                                 <div className="row">
                                     <div className="col"></div>
-                                    <div className="col-11">
+                                    <div className="col-11 ">
                                         <div className="input-group mb-3" style={{ border: "1px black solid", borderRadius: "20px" }}>
-                                            <button className="input-group-text" id="basic-addon1" style={{ fontSize: "3rem", backgroundColor: "white", borderTopLeftRadius: "20px", borderBottomLeftRadius: "20px", color: "#c1c1c1", border: "none", borderRight: "none" }}><IoMdAttach /></button>
-                                            <input type="text" className="form-control" placeholder="Please type or say what kind of optimizations you are looking for ?" aria-label="Username" aria-describedby="basic-addon1" />
+                                            <button className="input-group-text" id="basic-addon1" style={{ fontSize: "1.8rem", backgroundColor: "white", borderTopLeftRadius: "20px", borderBottomLeftRadius: "20px", color: "#494c51", border: "none", borderRight: "none" }}><IoMdAttach /></button>
+                                            <input value={prompt} onChange={(e) => setPrompt(e.target.value)} type="text" className="form-control " placeholder="Please type or say what kind of optimizations you are looking for ?" aria-label="Username" aria-describedby="basic-addon1" />
                                             <span className="input-group-text" id="basic-addon1" style={{ backgroundColor: "white", borderTopRightRadius: "20px", borderBottomRightRadius: "20px" }}>
-                                                <button className='btn btnGradient' style={{ backgroundColor: "#0076c3" }}>Submit</button>
+                                                <button onClick={handleSubmit} className='btn btnGradient' style={{ backgroundColor: "#0076c3" }}>{loading ? <Spinner /> : 'Submit'}</button>
                                             </span>
                                         </div>
                                     </div>
@@ -82,7 +143,6 @@ const iconStyles = {
     lineHeight: '1em',
     position: 'absolute',
     top: '50%',
-    marginLeft: '-3px',
     zIndex: 3,
     transition: 'transform 0.3s ease' /* Add transition for smoother animation */
 };

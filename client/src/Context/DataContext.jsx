@@ -2,14 +2,14 @@ import React, { createContext, useEffect, useState } from "react";
 export const DataContext = createContext();
 
 function DataContextProvider(props) {
-  const [imageName, setImageName] = useState("File Name");
+  const [lightTheme, setLightTheme] = useState(true);
   useEffect(() => {}, []);
 
   return (
     <DataContext.Provider
       value={{
-        imageName,
-        setImageName,
+        lightTheme,
+        setLightTheme,
       }}
     >
       {props.children}
