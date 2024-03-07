@@ -7,25 +7,11 @@
 <table>
     <tbody>
         <tr>
-            <td align="center">
-                <a href="https://github.com/Ahmadjajja">
-                    <img src="https://avatars.githubusercontent.com/u/86593662?v=4" width="100px;" alt="Ahmad Jajja"/>
+          <td align="center">
+                <a href="https://www.linkedin.com/in/brunoalecrim/">
+                    <img src="https://media.licdn.com/dms/image/D4D03AQFQOdGC1phyvw/profile-displayphoto-shrink_400_400/0/1688715652137?e=1715212800&v=beta&t=nhV2kXMB7IK4BwoXq3_AsWswNczEDDi_JL8MTHN10R8" width="100px;" alt="Bruno Cesar"/>
                     <br />
-                    <sub><b>Ahmad Jajja</b></sub>
-                </a> 
-            </td>
-            <td align="center">
-          <a href="https://github.com/inamprograms">
-                    <img src="https://avatars.githubusercontent.com/u/113470083?v=4" width="100px;" alt="Inam Ul Rehman"/>
-                    <br />
-                    <sub><b>Inam Ul Rehman</b></sub>
-                </a> 
-            </td>
-            <td align="center">
-                <a href="https://github.com/aleeza23">
-                    <img src="https://avatars.githubusercontent.com/u/130530849?v=4" width="100px;" alt="Aleeza Rubab"/>
-                    <br />
-                    <sub><b>Aleeza Rubab</b></sub>
+                    <sub><b>Bruno Cesar</b></sub>
                 </a> 
             </td>
           <td align="center">
@@ -42,11 +28,25 @@
                     <sub><b>Rizwan Zhad </b></sub>
                 </a> 
             </td>
-          <td align="center">
-                <a href="https://www.linkedin.com/in/brunoalecrim/">
-                    <img src="https://media.licdn.com/dms/image/D4D03AQFQOdGC1phyvw/profile-displayphoto-shrink_400_400/0/1688715652137?e=1715212800&v=beta&t=nhV2kXMB7IK4BwoXq3_AsWswNczEDDi_JL8MTHN10R8" width="100px;" alt="Bruno Cesar"/>
+            <td align="center">
+          <a href="https://github.com/inamprograms">
+                    <img src="https://avatars.githubusercontent.com/u/113470083?v=4" width="100px;" alt="Inam Ul Rehman"/>
                     <br />
-                    <sub><b>Bruno Cesar</b></sub>
+                    <sub><b>Inam Ul Rehman</b></sub>
+                </a> 
+            </td>
+            <td align="center">
+                <a href="https://github.com/Ahmadjajja">
+                    <img src="https://avatars.githubusercontent.com/u/86593662?v=4" width="100px;" alt="Ahmad Jajja"/>
+                    <br />
+                    <sub><b>Ahmad Jajja</b></sub>
+                </a> 
+            </td>
+            <td align="center">
+                <a href="https://github.com/aleeza23">
+                    <img src="https://avatars.githubusercontent.com/u/130530849?v=4" width="100px;" alt="Aleeza Rubab"/>
+                    <br />
+                    <sub><b>Aleeza Rubab</b></sub>
                 </a> 
             </td>
         </tr> 
@@ -55,7 +55,29 @@
 
 # Project Description:
 
-Hello! Welcome to EcoFactor - a chatbot that helps manufacturers select more sustainable and cost-effective materials and processes for their products, ensuring compliance with ESG standards. It offers a significant variety of resources and AI assistants that together provide a set of features oriented towards optimizing manufacturing processes, including product optimization, material replacement, and studying ESG documentation. A distinctive feature of ECOFACTOR is the combined use of autonomous AI assistants, responsible for navigating the internet, locating and filtering relevant information about the user's products and processes, as well as the supplier directory, dynamically and autonomously fed by Ecofactor's virtual assistant.
+Hello! Welcome to EcoFactor - a chatbot that helps manufacturers select more sustainable and cost-effective materials and processes for their products, ensuring compliance with ESG standards. It offers a significant variety of resources and AI assistants that together provide a set of features oriented towards optimizing manufacturing processes, including product optimization, material replacement, and studying ESG documentation. A distinctive feature of ECOFACTOR is the combined use of autonomous AI assistants, responsible for navigating the internet, locating and filtering relevant information about the user's products and processes, as well as the supplier directory, dynamically and autonomously fed by Ecofactor's virtual assistant. 
+
+<img src="./projectImages/EcoFactor.jpg">
+<img src="./projectImages/Team.jpg">
+<img src="./projectImages/Technologies.jpg">
+<img src="./projectImages/Challanges.jpg">
+<img src="./projectImages/Features.jpg">
+<img src="./projectImages/FuturePlans.jpg">
+<img src="./projectImages/idea1.jpg">
+<img src="./projectImages/idea2.jpg">
+<img src="./projectImages/idea3.jpg">
+<img src="./projectImages/idea4.jpg">
+<img src="./projectImages/Demo.jpg">
+<img src="./projectImages/1.png">
+<img src="./projectImages/2.png">
+<img src="./projectImages/3.png">
+<img src="./projectImages/4.png">
+<img src="./projectImages/5.png">
+<img src="./projectImages/6.png">
+<img src="./projectImages/7.png">
+<img src="./projectImages/8.png">
+<img src="./projectImages/9.png">
+<img src="./projectImages/10.png">
 
 
 <p>
