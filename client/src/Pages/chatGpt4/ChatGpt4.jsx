@@ -5,10 +5,10 @@ import { ThreeDots } from "react-loader-spinner";
 import Spinner from '../../Components/loader/Spinner';
 import Sidebar from '../../Components/sideBar/SBar';
 import chatgptLogo from "./CHATGPT_LOGO_WHITE.svg";
-import './ProductOptimization.css'; // Import CSS file for additional styles
+import './ChatGpt4.css'; // Import CSS file for additional styles
 import cogwheel from "./cogwheel-2.svg";
 
-export default function ProductOptimization() {
+export default function ChatGpt4() {
     const [collapsed, setCollapsed] = useState(false);
     const [loading, setLoading] = useState(false);
     const [prompt, setPrompt] = useState('');
@@ -30,7 +30,7 @@ export default function ProductOptimization() {
             // API Calling and getting response code
             try {
                 // Make a POST request using axios
-                const response = await axios.post('http://127.0.0.1:5000/api/optimize', postData);
+                const response = await axios.post('http://127.0.0.1:5000/api/eco_fac_gpt', postData);
 
                 console.log("response.data -> ", response.data);
                 setRecentAnswer(response.data.response);
@@ -55,14 +55,20 @@ export default function ProductOptimization() {
                     <span className={`big-icon ${collapsed ? 'rotate-left' : 'rotate-right'}`} style={{ ...iconStyles, color: "#ccc", marginLeft: collapsed ? '-3px' : '-10px' }}>{collapsed ? <>&#187;</> : <>&#171;</>}</span>
                 </div>
                 <div className="container-fluid d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
-                    <div className="container-fluid" style={{ height: "96vh", display: 'flex', flexDirection: 'column' }}>
+                    <div className="container" style={{ height: "96vh", display: 'flex', flexDirection: 'column' }}>
                         <div className="row" style={{ backgroundColor: "#c1c1c1", height: "15%", borderTopLeftRadius: "25px", borderTopRightRadius: "25px" }}>
                             <div className="col">
                                 <div className="row">
-                                    <div className="col-1"></div>
-                                    <div className="col-11">
-                                        <h2 style={textStyle} className='pt-4'>Product Optimization</h2>
+                                    <div className="col-5 ms-3 mt-4">
+                                        {/* <h2  className='pt-4'>ChatGPT 4</h2> */}
+                                        <select style={{...textStyle, backgroundColor: "#c1c1c1", border: "none", fontSize: "24px"}} class="form-select" aria-label="Default select example">
+                                            <option selected><h1><b>ChatGPT 4</b></h1></option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
                                     </div>
+                                    <div className="col-7"></div>
                                 </div>
                             </div>
                             <div className="col">
@@ -84,11 +90,11 @@ export default function ProductOptimization() {
                         </div>
 
 
-                        {promptsArr.length === 0 &&  <div className="row" style={{ backgroundColor: "#e6e6e6", height: "70%" }}>
+                        {promptsArr.length === 0 && <div className="row" style={{ backgroundColor: "#e6e6e6", height: "70%" }}>
                             <div className="col d-flex flex-column justify-content-center align-items-center" style={{ margin: "0 auto", maxWidth: "800px" }}>
                                 <div><img src={cogwheel} className='rounded circle' style={{ width: '40px' }} alt="cogwheel" /></div>
-                                <h3 className='heading3'>&nbsp; Just select the product you want to optimize,<br /> and describe below what you want to optimize...</h3>
-                                <p className='main-text ' style={{textAlignLast: "center"}}>&nbsp; &nbsp;An AI assistant versatile and effective in helping you maximize your productivity and expand the growth horizons of your business.
+                                <h3 className='heading3'>&nbsp; How can I help you today?</h3>
+                                <p className='main-text ' style={{ textAlignLast: "center" }}>&nbsp; &nbsp;Convenient access to all ChatGPT4 potential, in one simple and easy place, which means that the PRO and ENTERPRISE paid members will be able to access chatgpt4 directly from ECOFACTOR app, without the need to signup to ChatGPT Plus account.
                                 </p>
                             </div>
                         </div>}

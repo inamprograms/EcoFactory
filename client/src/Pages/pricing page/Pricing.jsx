@@ -1,8 +1,8 @@
 
 import { useState } from 'react';
+import PRICING_TABEL from '../../Assets/ICONS/PRICE_TABLE.svg';
 import Sidebar from '../../Components/sideBar/SBar';
 import '../productOptimization/ProductOptimization.css'; // Import CSS file for additional styles
-import PRICING_TABEL from '../../Assets/ICONS/PRICE_TABLE.svg'
 
 
 export default function Pricing({children}) {
@@ -30,7 +30,7 @@ export default function Pricing({children}) {
                             <div className="scroll-inner ">
                                 <div className="row mt-5 mb-3" style={{ backgroundColor: "#e6e6e6", height: "85%", borderBottomLeftRadius: "25px", borderBottomRightRadius: "25px" }}>
                                     <div className="col d-flex flex-column justify-content-center align-items-center" style={{ margin: "0 auto", maxWidth: "800px" }}>
-                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, commodi. Adipisci ex beatae nihil debitis eveniet, id ducimus! Quae assumenda perspiciatis recusandae cumque fugiat est.</p>
+                                        {/* <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, commodi. Adipisci ex beatae nihil debitis eveniet, id ducimus! Quae assumenda perspiciatis recusandae cumque fugiat est.</p> */}
                                         <img src={PRICING_TABEL} className='my-3' alt="pricing-tabel" />
                                     </div>
                                 </div>
