@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request 
 from flask_cors import CORS, cross_origin
 import os
-from consts.prompts import ProductDescription
+from consts.prompts import ProductDescription, EsgGudelinesAdvisor
 from rag_app import complete, retrieve, prompt_llm
 from openai import OpenAI
 
@@ -30,7 +30,7 @@ def product_optimizer():
     
     try:
         query = request.json.get("query") 
-        query = ProductDescription + query
+        # query = ProductDescription + query
         # print(query)
         query_with_contexts = retrieve(query)
         # print(query_with_contexts)
@@ -51,7 +51,7 @@ def esg_guidelines_advisor():
     
     try:
         query = request.json.get("query") 
-        # query = ProductDescription + query
+        # query = EsgGudelinesAdvisor + query
     
         query_with_contexts = retrieve(query)  
         bot = complete(query_with_contexts) 
