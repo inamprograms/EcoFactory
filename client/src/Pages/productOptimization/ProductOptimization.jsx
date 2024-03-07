@@ -204,17 +204,18 @@ const textStyle = {
 };
 
 const profileStyle = {
-    textAlign: "justify",
+    // textAlign: "justify",
     position: 'absolute',
     width: '6%',
-    bottom: '17px',
+    bottom: '5px',
     padding: '7px',
     left: '10px',
     backgroundColor: 'rgb(0, 118, 195)',
 };
 const profileUserStyle = {
+    marginTop: 2,
     position: 'absolute',
     width: '10%',
-    bottom: '17px',
+    bottom: '-3px',
     right: '10px',
 };
