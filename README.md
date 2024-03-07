@@ -1,4 +1,4 @@
-# Eco Journey
+# Eco Factor Team
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
