@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 import os
 from consts.prompts import ProductDescription
+from rag_app import complete, retrieve, prompt_llm
 from openai import OpenAI
 
 from dotenv import load_dotenv
@@ -30,18 +31,18 @@ def product_optimizer():
     try:
         query = request.json.get("query") 
         query = ProductDescription + query
-        response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        response_format={ "type": "json_object" },
-        messages=[
-            {"role": "user", "content": query}]
-        )
-        print(response.choices[0].message.content)
-        return response.choices[0].message.content
+        
+        query_with_contexts = retrieve(query)
+        print(query_with_contexts)
+        
+        bot = complete(query_with_contexts) 
+        return {"bot": bot}
     
     except ValueError as e:
         print("Error:", e)
         return jsonify({"error": "Internal Server Error"}), 500
+    
+    
     
     
 @app.route("/api/advisor", methods=['POST'])
@@ -49,6 +50,17 @@ def esg_guidelines_advisor():
     
     try:
         query = request.json.get("query") 
+        query = ProductDescription + query
+        
+        # creating embeddings using cohere
+        query_data = creatEmbeddings(query)
+        
+        # querying the database weaviate or pinecon to get relevant context
+        context = retrieve(query_data)
+
+        # write the prompt to for llm with relevant context
+        
+        # calling the chat completions api
         response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         response_format={ "type": "json_object" },
@@ -61,6 +73,8 @@ def esg_guidelines_advisor():
     except ValueError as e:
         print("Error:", e)
         return jsonify({"error": "Internal Server Error"}), 500
+    
+    
     
     
     
@@ -85,4 +99,4 @@ def gpt4():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False, host='0.0.0.0')

@@ -2,3 +2,6 @@ Flask
 Flask-Cors
 python-dotenv
 openai
+cohere
+pinecone-client
+numpy
