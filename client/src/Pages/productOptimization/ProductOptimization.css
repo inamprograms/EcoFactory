@@ -35,6 +35,9 @@
   font-family: "Roboto", sans-serif;
   font-weight: "bold";
 }
+.prompts{
+  display: block !important;
+}
 .main-text {
   font-family: "Roboto", sans-serif;
   margin-top: 0.5rem;
@@ -109,12 +112,31 @@ input {
 .scroll-box {
   overflow-y: auto !important;
   overflow-x: hidden;
-  visibility: hidden;
+  
+}
+.prompt-scroll-box{
+  overflow-y: auto !important;
+  overflow-x: hidden;
   
 }
 .scroll-inner,
 .scroll-box:hover {
   visibility: visible;
+}
+.loading-spinner {
+  font-size: 1.3rem;
+  animation: spinner linear 2s infinite;
+}
+@keyframes spinner {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* MEDIA QUERY */

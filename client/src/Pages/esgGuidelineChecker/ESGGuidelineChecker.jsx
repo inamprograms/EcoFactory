@@ -1,12 +1,33 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { IoMdAttach } from "react-icons/io";
 import Sidebar from '../../Components/sideBar/SBar';
 import '../productOptimization/ProductOptimization.css'; // Import CSS file for additional styles
 import cogwheel from "../productOptimization/cogwheel-2.svg";
+import Spinner from '../../Components/loader/Spinner';
 
 
 export default function ESGGuidelineChecker() {
     const [collapsed, setCollapsed] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+
+
+
+    const handleSubmit = () => {
+        setLoading(true)
+
+        setTimeout(() => {
+            setLoading(false)
+        }, 3000);
+    }
+
+
+
+
+
+
+
+
     return (
         <div id='productOptimization' style={{ display: 'flex', height: '100vh', minHeight: '400px' }} >
 
@@ -69,7 +90,7 @@ export default function ESGGuidelineChecker() {
                                             <button className="input-group-text" id="basic-addon1" style={{ fontSize: "1.8rem", backgroundColor: "white", borderTopLeftRadius: "20px", borderBottomLeftRadius: "20px", color: "#494c51", border: "none", borderRight: "none" }}><IoMdAttach /></button>
                                             <input type="text" className="form-control" placeholder="Please type or say what kind of optimizations you are looking for ?" aria-label="Username" aria-describedby="basic-addon1" />
                                             <span className="input-group-text" id="basic-addon1" style={{ backgroundColor: "white", borderTopRightRadius: "20px", borderBottomRightRadius: "20px" }}>
-                                                <button className='btn btnGradient' style={{ backgroundColor: "#0076c3" }}>Submit</button>
+                                            <button onClick={handleSubmit} className='btn btnGradient' style={{ backgroundColor: "#0076c3" }}>{loading ? <Spinner /> : 'Submit'}</button>
                                             </span>
                                         </div>
                                     </div>
