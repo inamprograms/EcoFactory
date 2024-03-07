@@ -35,7 +35,7 @@ export default function ESGGuidelineChecker() {
             <main className='main' style={{ width: collapsed ? "100vw" : "77vw", backgroundColor: "#2f3135" }}>
                 <div onClick={() => setCollapsed(!collapsed)} style={{ cursor: "pointer", color: "#c1c1c1" }}>
                     {/* <span class="big-icon" style={iconStyles}>{collapsed ? <>&#187;</>: <>&#171;</>}</span> */}
-                    <span className={`big-icon ${collapsed ? 'rotate-left' : 'rotate-right'}`} style={{ ...iconStyles, color: "#ccc" }}>{collapsed ? <>&#187;</> : <>&#171;</>}</span>
+                    <span className={`big-icon ${collapsed ? 'rotate-left' : 'rotate-right'}`} style={{ ...iconStyles, color: "#ccc", marginLeft: collapsed ? '-3px' : '-10px' }}>{collapsed ? <>&#187;</> : <>&#171;</>}</span>
                 </div>
                 <div className="container-fluid d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
                     <div className="container-fluid" style={{ height: "96vh" }}>

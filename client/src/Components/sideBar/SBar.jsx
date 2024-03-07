@@ -10,33 +10,44 @@ import GPT_AI from "../../Assets/ICONS/ICON_GPT4.svg";
 import GPT_AI_ACTIVE from "../../Assets/ICONS/ICON_GPT4 active.svg";
 
 import ICON_GUIDLINES from '../../Assets/ICONS/ICON_GUIDELINE_DATABASE.svg';
+import ICON_GUIDLINES_ACTIVE from '../../Assets/ICONS/ICON_GUIDELINE_DATABASE active.svg';
+
+
 import ICON_INTEGRATION from '../../Assets/ICONS/ICON_INTEGRATIONS.svg';
 import ICON_MATERIAL from '../../Assets/ICONS/ICON_MATERIALS.svg';
+import ICON_MATERIAL_ACTIVE from '../../Assets/ICONS/ICON_MATERIALS active.svg';
+
 import ICON_MOON from "../../Assets/ICONS/ICON_MOON.svg";
 import ICON_OPTIMIZATION from '../../Assets/ICONS/ICON_OPTIMIZER.svg';
 import ICON_OPTIMIZATION_ACTIVE from '../../Assets/ICONS/ICON_OPTIMIZER active.svg';
 
 import ICON_PRODUCT from "../../Assets/ICONS/ICON_PRODUCTS.svg";
+import ICON_PRODUCT_ACTIVE from "../../Assets/ICONS/ICON_PRODUCTS active.svg";
+
 import ICON_SUN from "../../Assets/ICONS/ICON_SUN.svg";
 import ICON_SUPLIERS from '../../Assets/ICONS/ICON_SUPPLIERS.svg';
+import ICON_SUPLIERS_ACTIVE from '../../Assets/ICONS/ICON_SUPPLIERS active.svg';
+
 import ecofactor from "../../Assets/ICONS/LOGO_ECOFACTOR_FINAL (1).svg";
 
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function SBar({ collapsed }) {
     const [showChats, setShowChats] = useState(true);
 
 
     const path = useLocation().pathname
+    const navigate = useNavigate()
     console.log(path);
 
+
     const inventoryData = [
-        { icon: ICON_PRODUCT, title: 'Products Catalog' },
-        { icon: ICON_MATERIAL, title: 'Material Catalog' },
-        { icon: ICON_SUPLIERS, title: 'Supplier Directory' },
-        { icon: ICON_GUIDLINES, title: 'USG Guidlines' },
+        { icon: ICON_PRODUCT, title: 'Products Catalog', to: '/products', iconActive: ICON_PRODUCT_ACTIVE },
+        { icon: ICON_MATERIAL, title: 'Material Catalog', to: '/materials', iconActive: ICON_MATERIAL_ACTIVE },
+        { icon: ICON_SUPLIERS, title: 'Supplier Directory', to: '/suppliers', iconActive: ICON_SUPLIERS_ACTIVE },
+        { icon: ICON_GUIDLINES, title: 'USG Guidlines', to: '/guidelines', iconActive: ICON_GUIDLINES_ACTIVE },
     ]
 
     const pages = [
@@ -75,9 +86,9 @@ export default function SBar({ collapsed }) {
                                 {inventoryData.map((currElm) => {
                                     return (
                                         <>
-                                            <div className='px-3' style={{ paddingTop: "10px", paddingBottom: "9px", backgroundColor: "#2f3135", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center', borderRadius: "10px" }}>
-                                                <img src={currElm.icon} alt="icon-one" style={{ fill: "red", width: '1.5rem' }} />
-                                                <p className='text-center mt-2 mb-0' style={{ color: "#999999", fontSize: ".7rem" }}>{currElm.title}</p>
+                                            <div onClick={() => navigate(currElm.to)} className='px-3' style={{ border: currElm.to === path && "1px solid #17c5c4", cursor: "pointer", paddingTop: "10px", paddingBottom: "9px", backgroundColor: "#2f3135", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center', borderRadius: "10px" }}>
+                                                <img src={currElm.to === path ? currElm.iconActive : currElm.icon} alt="icon-one" style={{ fill: "red", width: '1.5rem' }} />
+                                                <p className='text-center mt-2 mb-0' style={{ color: currElm.to === path ? "#17c5c4" : "#999999", fontSize: ".7rem" }}>{currElm.title}</p>
                                             </div>
                                         </>
                                     )
@@ -143,7 +154,7 @@ export default function SBar({ collapsed }) {
                                 <p className='text-start' style={{ fontSize: ".7rem", color: "#999999" }}>Usage count: <span style={{ color: "#FFFFFF" }}>11</span> chats | <span style={{ color: "#FFFFFF" }}>28.k</span> Token</p>
                             </div>
                         </div>
-                        <button className='upgrade-btn'>Upgrade Plan</button>
+                        <button onClick={() => navigate('/pricing')} className={`${path === '/pricing' ? "upgrade-btn-active " : "upgrade-btn"} `}>Upgrade Plan</button>
                         <div style={{ display: 'flex', justifyContent: "center", width: "70%", margin: "1.2rem auto" }}>
                             <button className='border-0 bg-black text-start px-2 py-1 text-white w-100 rounded' ><img src={ICON_SUN} alt="" style={{ width: '1.2rem' }} /> <span className='ms-2'>Light</span> </button>
                             <button className='border-0 bg-transparent text-white w-100'><img src={ICON_MOON} alt="" style={{ width: '1.2rem' }} /> <span className='ms-2'>Dark</span></button>
