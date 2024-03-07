@@ -3,30 +3,30 @@ import { Sidebar } from 'react-pro-sidebar';
 import BADGE_PRO from "../../Assets/ICONS/BADGE_PRO.svg";
 import colorBar from "../../Assets/ICONS/COLORBAR.png";
 import ICON_CUSTOM_GPT from "../../Assets/ICONS/ICON_CUSTOM_GPT.svg";
-import ICON_ESG from '../../Assets/ICONS/ICON_ESG_GUIDELINE.svg';
 import ICON_ESG_ACTIVE from '../../Assets/ICONS/ICON_ESG_GUIDELINE active.svg';
+import ICON_ESG from '../../Assets/ICONS/ICON_ESG_GUIDELINE.svg';
 
-import GPT_AI from "../../Assets/ICONS/ICON_GPT4.svg";
 import GPT_AI_ACTIVE from "../../Assets/ICONS/ICON_GPT4 active.svg";
+import GPT_AI from "../../Assets/ICONS/ICON_GPT4.svg";
 
-import ICON_GUIDLINES from '../../Assets/ICONS/ICON_GUIDELINE_DATABASE.svg';
 import ICON_GUIDLINES_ACTIVE from '../../Assets/ICONS/ICON_GUIDELINE_DATABASE active.svg';
+import ICON_GUIDLINES from '../../Assets/ICONS/ICON_GUIDELINE_DATABASE.svg';
 
 
 import ICON_INTEGRATION from '../../Assets/ICONS/ICON_INTEGRATIONS.svg';
-import ICON_MATERIAL from '../../Assets/ICONS/ICON_MATERIALS.svg';
 import ICON_MATERIAL_ACTIVE from '../../Assets/ICONS/ICON_MATERIALS active.svg';
+import ICON_MATERIAL from '../../Assets/ICONS/ICON_MATERIALS.svg';
 
 import ICON_MOON from "../../Assets/ICONS/ICON_MOON.svg";
-import ICON_OPTIMIZATION from '../../Assets/ICONS/ICON_OPTIMIZER.svg';
 import ICON_OPTIMIZATION_ACTIVE from '../../Assets/ICONS/ICON_OPTIMIZER active.svg';
+import ICON_OPTIMIZATION from '../../Assets/ICONS/ICON_OPTIMIZER.svg';
 
-import ICON_PRODUCT from "../../Assets/ICONS/ICON_PRODUCTS.svg";
 import ICON_PRODUCT_ACTIVE from "../../Assets/ICONS/ICON_PRODUCTS active.svg";
+import ICON_PRODUCT from "../../Assets/ICONS/ICON_PRODUCTS.svg";
 
 import ICON_SUN from "../../Assets/ICONS/ICON_SUN.svg";
-import ICON_SUPLIERS from '../../Assets/ICONS/ICON_SUPPLIERS.svg';
 import ICON_SUPLIERS_ACTIVE from '../../Assets/ICONS/ICON_SUPPLIERS active.svg';
+import ICON_SUPLIERS from '../../Assets/ICONS/ICON_SUPPLIERS.svg';
 
 import ecofactor from "../../Assets/ICONS/LOGO_ECOFACTOR_FINAL (1).svg";
 
@@ -53,7 +53,7 @@ export default function SBar({ collapsed }) {
     const pages = [
         { icon: ICON_OPTIMIZATION, iconActive: ICON_OPTIMIZATION_ACTIVE, title: 'Products Optimization', to: '/' },
         { icon: ICON_ESG, iconActive: ICON_ESG_ACTIVE, title: 'ESG Guidline Checker', to: '/esg-guidlines' },
-        { icon: GPT_AI, iconActive: GPT_AI_ACTIVE, title: 'New Regular ChatGPT 4', to: '' },
+        { icon: GPT_AI, iconActive: GPT_AI_ACTIVE, title: 'New Regular ChatGPT 4', to: '/regular-chatgpt4' },
         { icon: ICON_CUSTOM_GPT, title: 'Create Custom GPT', subTitle: "(Upgrade plan)", disable: true, to: '' },
         { icon: ICON_INTEGRATION, title: 'Integrations', subTitle: "(Upgrade plan)", disable: true, to: '' },
 
