@@ -1,18 +1,21 @@
 import cohere
+import os
 from pinecone import Pinecone
 
-pinecone_api_key = os.getenv('p_api_key')
-cohere_api_key = os.getenv('c_api_key')
+pinecone_api_key = os.getenv('PINECONE_API_KEY')
+cohere_api_key = os.getenv('COHERE_API_KEY')
 
 
 co = cohere.Client(cohere_api_key)
-pc = Pinecone(pinecone_api_key) # add your pinecone API key here
+pc = Pinecone(pinecone_api_key)
 
-index_name = 'quranic'
+index_name = 'ecofactor'
 index = pc.Index(index_name)
 
+limit = 3000
 
 def retrieve(query):
+    # create embedding
     xq = co.embed(
         texts=[query],
         model='multilingual-22-12',
@@ -22,15 +25,13 @@ def retrieve(query):
     xc = index.query(vector=xq, top_k=3, include_metadata=True)
 
     # Extract relevant information from the matches
-    surahs = [str(x['metadata']['Surah']) for x in xc['matches']]
-    ayahs = [str(x['metadata']['Ayat']) for x in xc['matches']]
-    arabics = [str(x['metadata']['Arabic']) for x in xc['matches']]
-    tafaseers = [str(x['metadata']['Tafaseer1']) for x in xc['matches']]
+    des = [str(x['metadata']['Products description']) for x in xc['matches']]
+    
 
     # Combine the information into formatted contexts
     contexts = [
-        f"Surah: {surah}\n Ayah: {ayah}\n Arabic: {arabic}\n"
-        for surah, ayah, arabic in zip(surahs, ayahs, arabics)
+        f"Product description: {des}"
+        for description in zip(des)
     ]
 
     # Build the prompt with the retrieved contexts included
@@ -39,7 +40,7 @@ def retrieve(query):
         f"Context:\n"
     )
     prompt_end = (
-        f"\n\nQuery: {query}\nAnswer in the language of Query, if Query is in English Answer in English. Please provide reference Quran verses."
+        f"\n\nQuery: {query}\nAnswer in the language of Query, if Query is in English Answer in English."
     )
 
     # Append contexts until hitting the limit
@@ -59,6 +60,8 @@ def retrieve(query):
             )
     return prompt
 
+
+
 def complete(prompt):
   response = co.generate(
                           model='c4ai-aya',
@@ -70,6 +73,8 @@ def complete(prompt):
                           return_likelihoods='NONE'
                         )
   return response.generations[0].text.strip()
+
+
 
 prompt_llm = "your retrieved prompt here with context"
 

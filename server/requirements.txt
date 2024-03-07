@@ -5,3 +5,4 @@ openai
 weaviate-clien
 cohere
 pinecone-client
+numpy

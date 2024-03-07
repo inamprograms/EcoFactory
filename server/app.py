@@ -40,6 +40,8 @@ def product_optimizer():
         return jsonify({"error": "Internal Server Error"}), 500
     
     
+    
+    
 @app.route("/api/advisor", methods=['POST'])
 def esg_guidelines_advisor():
     
@@ -68,6 +70,8 @@ def esg_guidelines_advisor():
     except ValueError as e:
         print("Error:", e)
         return jsonify({"error": "Internal Server Error"}), 500
+    
+    
     
     
     
