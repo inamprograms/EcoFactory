@@ -1,4 +1,4 @@
-# Eco Factor Team
+# EcoFactory Team
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
