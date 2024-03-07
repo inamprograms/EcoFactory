@@ -18,16 +18,16 @@ ExampleEsgGudelinesAdvisor = """ Prompt goes here"""
 
 
 
-from openai import OpenAI
+# from openai import OpenAI
 # client = OpenAI()
 
-def createEmbeddings(query):
+# def createEmbeddings(query):
 
-    response = client.embeddings.create(
-    input=query,
-    model="text-embedding-3-small"
-    )
+#     response = client.embeddings.create(
+#     input=query,
+#     model="text-embedding-3-small"
+#     )
 
-    print(response.data[0].embedding)
+#     print(response.data[0].embedding)
     
 # createEmbeddings(ExampleEsgGudelinesAdvisor)

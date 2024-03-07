@@ -1,4 +1,4 @@
-# EcoFactory Team
+# EcoFactor Team
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -85,7 +85,7 @@ EcoFactory is a revolutionary chatbot designed to assist manufacturers worldwide
     <a href="https://github.com/Ahmadjajja/EcoFactory"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://lablab.ai/event/leap-2024-hackathon/travelfox-ai">View Project</a>
+    <a href="https://lablab.ai/event/leap-2024-hackathon/ecofactor-team/ecofactor-smart-manufactures-solutions">View Project</a>
     ·
     <a href="https://github.com/Ahmadjajja/EcoFactory/issues">Report Bug</a>
     ·
