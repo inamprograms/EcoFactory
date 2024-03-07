@@ -1,3 +1,4 @@
+import axios from 'axios'; // Import axios for making HTTP requests
 import { useState } from 'react';
 import { IoMdAttach } from "react-icons/io";
 import { ThreeDots } from "react-loader-spinner";
@@ -7,48 +8,41 @@ import chatgptLogo from "./CHATGPT_LOGO_WHITE.svg";
 import './ProductOptimization.css'; // Import CSS file for additional styles
 import cogwheel from "./cogwheel-2.svg";
 
-
 export default function ProductOptimization() {
     const [collapsed, setCollapsed] = useState(false);
     const [loading, setLoading] = useState(false);
     const [prompt, setPrompt] = useState('');
     const [promptsArr, setPromptsArr] = useState([]);
     const [recentAnswer, setRecentAnswer] = useState("");
-    // const [typing, setTyping] = useState(false);
+    const [error, setError] = useState(null);
 
-    // const sendMessage = (text) => {
-    //     setPromptsArr([...promptsArr, { text, sender: 'user' }]);
-    //     console.log("promptsArr -> ", promptsArr)
-    //     generateBotResponse(text);
-    // };
-
-    // const generateBotResponse = (userMessage) => {
-    //     const botResponse = `You said: "${userMessage}"`;
-    //     setTyping(true);
-    //     setTimeout(() => {
-    //         setPromptsArr((prevPrompts) => [
-    //             ...prevPrompts,
-    //             { text: botResponse, sender: 'bot' }
-    //         ]);
-    //         setTyping(false);
-    //     }, 3000);
-    // };
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (prompt.trim() !== '') {
             console.log("prompt -> ", prompt);
             setPromptsArr([...promptsArr, prompt]);
+            const postData = {
+                query: prompt + "? Give me response in JSON & there should be 1 key named response"
+            };
             setPrompt('');
 
-            setLoading(true)
+            setLoading(true);
             // API Calling and getting response code
-            setTimeout(() => {
+            try {
+                // Make a POST request using axios
+                const response = await axios.post('http://127.0.0.1:5000/api/optimize', postData);
 
-                setLoading(false)
-                setPromptsArr(prevPromptsArr => [...prevPromptsArr, "Chatgpt answer..."]);
-            }, 3000);
-
+                console.log("response.data -> ", response.data);
+                setRecentAnswer(response.data.response);
+                setPromptsArr(prevPromptsArr => [...prevPromptsArr, response?.data?.response]);
+                setLoading(false);
+                setError(null); // Reset error state
+            } catch (error) {
+                // Handle errors
+                console.error("Error fetching data: ", error);
+                setError(error.message); // Store error message in state
+                setLoading(false);
+            }
         }
     };
 
@@ -58,18 +52,16 @@ export default function ProductOptimization() {
             <Sidebar collapsed={collapsed} />
             <main className='main' style={{ width: collapsed ? "100vw" : "77vw", backgroundColor: "#2f3135", }}>
                 <div onClick={() => setCollapsed(!collapsed)} style={{ cursor: "pointer", color: "#c1c1c1" }}>
-                    {/* <span class="big-icon" style={iconStyles}>{collapsed ? <>&#187;</>: <>&#171;</>}</span> */}
                     <span className={`big-icon ${collapsed ? 'rotate-left' : 'rotate-right'}`} style={{ ...iconStyles, color: "#ccc", marginLeft: collapsed ? '-3px' : '-10px' }}>{collapsed ? <>&#187;</> : <>&#171;</>}</span>
                 </div>
                 <div className="container-fluid d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
                     <div className="container-fluid" style={{ height: "96vh", display: 'flex', flexDirection: 'column' }}>
                         <div className="row" style={{ backgroundColor: "#c1c1c1", height: "15%", borderTopLeftRadius: "25px", borderTopRightRadius: "25px" }}>
-                            <div className="col" >
+                            <div className="col">
                                 <div className="row">
                                     <div className="col-1"></div>
                                     <div className="col-11">
                                         <h2 style={textStyle} className='pt-4'>Product Optimization</h2>
-
                                     </div>
                                 </div>
                             </div>
@@ -78,7 +70,6 @@ export default function ProductOptimization() {
                                     <div className="row">
                                         <div className="col-3"></div>
                                         <div className="col-8">
-
                                             <select className="form-select" style={{ cursor: 'pointer' }} aria-label="Default select example">
                                                 <option selected>Select product to optimize</option>
                                                 <option value="1">One</option>
@@ -93,7 +84,7 @@ export default function ProductOptimization() {
                         </div>
 
 
-                        {promptsArr.length == 0 && <div className="row" style={{ backgroundColor: "#e6e6e6", height: "70%" }}>
+                        {promptsArr.length === 0 && <div className="row" style={{ backgroundColor: "#e6e6e6", height: "70%" }}>
                             <div className="col d-flex flex-column justify-content-center align-items-center" style={{ margin: "0 auto", maxWidth: "800px" }}>
                                 <div><img src={cogwheel} className='rounded circle' style={{ width: '40px' }} alt="cogwheel" /></div>
                                 <h3 className='heading3'>&nbsp; Just select the product you want to optimize,<br /> and describe below what you want to optimize...</h3>
@@ -109,25 +100,20 @@ export default function ProductOptimization() {
 
 
                                         <div className="container-fluid">
-                                            {/* <div className="row">
-                                                <div className="col">&nbsp;.</div>
-                                            </div> */}
-                                            {promptsArr.map((prompt, index) => (
+                                            {promptsArr.map((prom, index) => (
                                                 <div key={index}>
-                                                    {index % 2 == 0 ?
+                                                    {index % 2 === 0 ?
                                                         <div className="row " style={{ position: 'relative' }}>
                                                             <img src="https://camo.githubusercontent.com/1e6de73a5a5d1800c3f18f294e4b019466d6daa7ac4ddbe713afc5e3ac062547/68747470733a2f2f6d656469612e6c6963646e2e636f6d2f646d732f696d6167652f4434443033415148556d6b357863444d6574412f70726f66696c652d646973706c617970686f746f2d736872696e6b5f3430305f3430302f302f313639333430353830343034313f653d3137313532313238303026763d6265746126743d307a4b74676b73684967694439786d6e456a425a7158755731343547774e5676386f6d3958576b424f7259" className='rounded-circle' style={profileUserStyle} alt="" />
-
                                                             <div className="col-3"></div>
                                                             <div className="col-9 shadow p-3 mb-5 bg-body-tertiary rounded " >
-                                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sit dicta, explicabo consectetur, accusantium, voluptate repellendus quod fugiat aliquam iure sunt rerum officia aliquid iste delectus vero deleniti obcaecati similique voluptas nobis nostrum eaque! At qui possimus sequi? Dolore, ipsa?
+                                                                {prom}
                                                             </div>
                                                         </div>
                                                         :
                                                         <div className="row" style={{ position: 'relative' }}>
                                                             <img src={chatgptLogo} className='rounded-circle' style={profileStyle} alt="" />
-                                                            <div className="col-9 shadow-none p-3 mb-5 bg-body-tertiary rounded">Fair and Lovely Cream: This cream contains hydroquinone, a skin-lightening agent, along with
-                                                                parabens and artificial fragrances. It is marketed as a product to lighten skin tone and even out complexion.</div>
+                                                            <div className="col-9 shadow-none p-3 mb-5 bg-body-tertiary rounded">{prom}</div>
                                                             <div className="col-3"></div>
                                                         </div>
                                                     }
@@ -151,15 +137,6 @@ export default function ProductOptimization() {
                                                     <div className="col-3"></div>
                                                 </div>}
                                         </div>
-
-                                        {/* {typing && <div className="message bot">
-                                            <div className="row">
-                                                <div className="col-3"></div>
-                                                <div className="col-9 bg-dark border border-1 border-danger">Hello</div>
-                                            </div>
-                                            
-                                            </div>} */}
-
                                     </div>
                                 </div>
                             </div>
@@ -177,6 +154,7 @@ export default function ProductOptimization() {
                                                 <button onClick={handleSubmit} className='btn btnGradient' style={{ backgroundColor: "#0076c3" }}>{loading ? <Spinner /> : 'Submit'}</button>
                                             </span>
                                         </div>
+                                        {error && <p className="text-danger">{error}</p>}
                                     </div>
                                     <div className="col"></div>
                                 </div>
@@ -204,7 +182,6 @@ const textStyle = {
 };
 
 const profileStyle = {
-    // textAlign: "justify",
     position: 'absolute',
     width: '6%',
     bottom: '5px',
