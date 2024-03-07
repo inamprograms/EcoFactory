@@ -55,7 +55,7 @@
 
 # Project Description:
 
-EcoFactory is a revolutionary chatbot designed to assist manufacturers worldwide in optimizing their products for sustainability and cost-effectiveness. By leveraging advanced algorithms, EcoFactory suggests more economical and sustainable materials and processes while adhering to current Environmental, Social, and Governance (ESG) practices standards.
+Hello! Welcome to EcoFactor - a chatbot that helps manufacturers select more sustainable and cost-effective materials and processes for their products, ensuring compliance with ESG standards. It offers a significant variety of resources and AI assistants that together provide a set of features oriented towards optimizing manufacturing processes, including product optimization, material replacement, and studying ESG documentation. A distinctive feature of ECOFACTOR is the combined use of autonomous AI assistants, responsible for navigating the internet, locating and filtering relevant information about the user's products and processes, as well as the supplier directory, dynamically and autonomously fed by Ecofactor's virtual assistant.
 
 <img src="./projectImages/EcoFactor.jpg">
 <img src="./projectImages/Team.jpg">
