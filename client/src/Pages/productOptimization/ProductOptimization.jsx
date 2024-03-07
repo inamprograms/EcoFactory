@@ -1,52 +1,53 @@
-import {  useState } from 'react';
+import { useState } from 'react';
 import { IoMdAttach } from "react-icons/io";
+import { ThreeDots } from "react-loader-spinner";
+import Spinner from '../../Components/loader/Spinner';
 import Sidebar from '../../Components/sideBar/SBar';
 import './ProductOptimization.css'; // Import CSS file for additional styles
 import cogwheel from "./cogwheel-2.svg";
-import Spinner from '../../Components/loader/Spinner';
-
-
 export default function ProductOptimization() {
     const [collapsed, setCollapsed] = useState(false);
     const [loading, setLoading] = useState(false);
     const [prompt, setPrompt] = useState('');
     const [promptsArr, setPromptsArr] = useState([]);
-    const [responseArr, setresponseArr] = useState([]);
-    const [typing, setTyping] = useState(false);
-    
-    const sendMessage = (text) => {
-        setPromptsArr([...promptsArr, { text, sender: 'user' }]);
-        generateBotResponse(text);
-      };
-    
-      const generateBotResponse = (userMessage) => {
-        const botResponse = `You said: "${userMessage}"`;
-        setTyping(true);
-        setTimeout(() => {
-          setPromptsArr((prevPrompts) => [
-            ...prevPrompts,
-            { text: botResponse, sender: 'bot' }
-          ]);
-          setTyping(false);
-        }, 3000);
-      };
-    
-      const handleSubmit = (e) => {
+    const [recentAnswer, setRecentAnswer] = useState("");
+    // const [typing, setTyping] = useState(false);
+
+    // const sendMessage = (text) => {
+    //     setPromptsArr([...promptsArr, { text, sender: 'user' }]);
+    //     console.log("promptsArr -> ", promptsArr)
+    //     generateBotResponse(text);
+    // };
+
+    // const generateBotResponse = (userMessage) => {
+    //     const botResponse = `You said: "${userMessage}"`;
+    //     setTyping(true);
+    //     setTimeout(() => {
+    //         setPromptsArr((prevPrompts) => [
+    //             ...prevPrompts,
+    //             { text: botResponse, sender: 'bot' }
+    //         ]);
+    //         setTyping(false);
+    //     }, 3000);
+    // };
+
+    const handleSubmit = (e) => {
         e.preventDefault();
         if (prompt.trim() !== '') {
-          sendMessage(prompt);
-          setPrompt('');
+            console.log("prompt -> ", prompt);
+            setPromptsArr([...promptsArr, prompt]);
+            setPrompt('');
+
+            setLoading(true)
+            // API Calling and getting response code
+            setTimeout(() => {
+
+                setLoading(false)
+                setPromptsArr(prevPromptsArr => [...prevPromptsArr, "Chatgpt answer..."]);
+            }, 3000);
+
         }
-      };
-    
-
-
-
-
-
-
-
-
+    };
 
     return (
         <div id='productOptimization' style={{ display: 'flex', height: '100vh', minHeight: '400px' }} >
@@ -87,7 +88,9 @@ export default function ProductOptimization() {
                                 </div>
                             </div>
                         </div>
-                        {promptsArr.length === 0 && <div className="row" style={{ backgroundColor: "#e6e6e6", height: "70%" }}>
+
+
+                        {promptsArr.length == 0 && <div className="row" style={{ backgroundColor: "#e6e6e6", height: "70%" }}>
                             <div className="col d-flex flex-column justify-content-center align-items-center" style={{ margin: "0 auto", maxWidth: "800px" }}>
                                 <div><img src={cogwheel} style={{ width: '40px' }} alt="cogwheel" /></div>
                                 <h3 className='heading3'>&nbsp; Just select the product you want to optimize,<br /> and describe below what you want to optimize...</h3>
@@ -101,14 +104,53 @@ export default function ProductOptimization() {
                                 <div className="scroll-inner ">
                                     <div className=" row prompts px-5 pt-4" style={{ backgroundColor: "#e6e6e6", height: "70%" }}>
 
-                                        {promptsArr.map((prompt, index) => (
-                                            <div key={index} className="mt-2">
-                                                <strong className='fs-4'>{prompt.sender}</strong>
-                                                <p className='mt-0'>{prompt.text}</p>
+
+                                        <div className="container-fluid">
+                                            {/* <div className="row">
+                                                <div className="col">&nbsp;.</div>
+                                            </div> */}
+                                            {promptsArr.map((prompt, index) => (
+                                                <div key={index}>
+                                                    {index % 2 == 0 ?
+                                                        <div className="row ">
+                                                            <div className="col-3"></div>
+                                                            <div className="col-9 shadow p-3 mb-5 bg-body-tertiary rounded">{promptsArr[index]}</div>
+                                                        </div>
+                                                        :
+                                                        <div className="row">
+                                                            <div className="col-9 shadow-none p-3 mb-5 bg-body-tertiary rounded">Fair and Lovely Cream: This cream contains hydroquinone, a skin-lightening agent, along with
+                                                                parabens and artificial fragrances. It is marketed as a product to lighten skin tone and even out complexion.</div>
+                                                            <div className="col-3"></div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            ))}
+                                            {loading &&
+                                                <div className="row">
+                                                    <div className="col-9 shadow-none p-3 mb-5 bg-body-tertiary rounded" style={{ height: "100px" }}>
+                                                        <ThreeDots
+                                                            visible={true}
+                                                            height="30"
+                                                            width="30"
+                                                            color="black"
+                                                            radius="9"
+                                                            ariaLabel="three-dots-loading"
+                                                            wrapperStyle={{}}
+                                                            wrapperClass=""
+                                                        />
+                                                    </div>
+                                                    <div className="col-3"></div>
+                                                </div>}
+                                        </div>
+
+                                        {/* {typing && <div className="message bot">
+                                            <div className="row">
+                                                <div className="col-3"></div>
+                                                <div className="col-9 bg-dark border border-1 border-danger">Hello</div>
                                             </div>
-                                        ))}
-                                        {typing && <div className="message bot">...</div>}
-                                       
+                                            
+                                            </div>} */}
+
                                     </div>
                                 </div>
                             </div>
