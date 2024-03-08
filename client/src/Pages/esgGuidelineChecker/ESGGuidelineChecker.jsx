@@ -117,17 +117,17 @@ export default function ESGGuidelineChecker() {
                                             {promptsArr.map((prom, index) => (
                                                 <div key={index}>
                                                     {index % 2 === 0 ?
-                                                        <div className="row " style={{ position: 'relative' }}>
-                                                            <img src="https://camo.githubusercontent.com/1e6de73a5a5d1800c3f18f294e4b019466d6daa7ac4ddbe713afc5e3ac062547/68747470733a2f2f6d656469612e6c6963646e2e636f6d2f646d732f696d6167652f4434443033415148556d6b357863444d6574412f70726f66696c652d646973706c617970686f746f2d736872696e6b5f3430305f3430302f302f313639333430353830343034313f653d3137313532313238303026763d6265746126743d307a4b74676b73684967694439786d6e456a425a7158755731343547774e5676386f6d3958576b424f7259" className='rounded-circle' style={profileUserStyle} alt="" />
-                                                            <div className="col-3"></div>
+                                                       <div className="row p-0 m-0 " style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                                            <img src="https://camo.githubusercontent.com/1e6de73a5a5d1800c3f18f294e4b019466d6daa7ac4ddbe713afc5e3ac062547/68747470733a2f2f6d656469612e6c6963646e2e636f6d2f646d732f696d6167652f4434443033415148556d6b357863444d6574412f70726f66696c652d646973706c617970686f746f2d736872696e6b5f3430305f3430302f302f313639333430353830343034313f653d3137313532313238303026763d6265746126743d307a4b74676b73684967694439786d6e456a425a7158755731343547774e5676386f6d3958576b424f7259" className='rounded-circle mb-auto ms-auto me-2  ' style={profileUserStyle} alt="" />
                                                             <div className="col-9 shadow p-3 mb-5 bg-body-tertiary rounded " >
                                                                 {prom}
                                                             </div>
-                                                        </div>
+                                                            <div className="col-3"></div>
+                                                            </div>
                                                         :
-                                                        <div className="row" style={{ position: 'relative' }}>
-                                                            <img src={chatgptLogo} className='rounded-circle' style={profileStyle} alt="" />
-                                                            <div className="col-9 shadow-none p-3 mb-5 bg-body-tertiary rounded">
+                                                        <div className="row " style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                                            <img src={chatgptLogo} className='rounded-circle mb-auto me-2' style={profileStyle} alt="" />
+                                                            <div className="col-9 shadow-none me-auto p-3 mb-5 bg-body-tertiary rounded">
                                                                 <h2>Product Description:</h2>
                                                                 <p>{prom.productDescription}</p>
                                                                 <h2>ESG Guideline:</h2>
@@ -145,9 +145,9 @@ export default function ESGGuidelineChecker() {
                                                 </div>
                                             ))}
                                             {loading &&
-                                                <div className="row" style={{ position: 'relative' }}>
-                                                    <img src={chatgptLogo} className='rounded-circle' style={profileStyle} alt="" />
-                                                    <div className="col-9 shadow-none p-3 mb-5 bg-body-tertiary rounded" style={{ height: "100px" }}>
+                                                <div className="row " style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                                            <img src={chatgptLogo} className='rounded-circle mb-auto me-2' style={profileStyle} alt="" />
+                                                    <div className="col-9 shadow-none p-3 mb-5 me-auto bg-body-tertiary rounded" style={{ height: "100px" }}>
                                                         <ThreeDots
                                                             visible={true}
                                                             height="30"
@@ -207,19 +207,14 @@ const textStyle = {
 };
 
 const profileStyle = {
-    position: 'absolute',
-    width: '6%',
-    bottom: '5px',
+    width: '3%',
     padding: '7px',
-    left: '10px',
     backgroundColor: 'rgb(0, 118, 195)',
 };
 const profileUserStyle = {
-    marginTop: 2,
-    position: 'absolute',
-    width: '10%',
-    bottom: '-3px',
-    right: '10px',
+    width: '4.5%',
+    padding: '7px',
+    marginTop : '-5px'
 };
 
 
