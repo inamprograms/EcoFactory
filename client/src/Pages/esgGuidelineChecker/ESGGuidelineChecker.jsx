@@ -13,7 +13,7 @@ export default function ESGGuidelineChecker() {
     const [loading, setLoading] = useState(false);
     const [prompt, setPrompt] = useState('');
     const [promptsArr, setPromptsArr] = useState([]);
-    const [recentAnswer, setRecentAnswer] = useState("");
+    const [recentAnswer, setRecentAnswer] = useState({});
     const [error, setError] = useState(null);
 
     const handleSubmit = async (e) => {
@@ -22,19 +22,23 @@ export default function ESGGuidelineChecker() {
             console.log("prompt -> ", prompt);
             setPromptsArr([...promptsArr, prompt]);
             const postData = {
-                query: prompt + "? give me response in JSON as following format -> productDescription: String, esgGuideline: String, productEsgReport: Object with Compliance (String), Grade (Float), and Analysis (String)."
+                query: prompt + "? give me response in exact in JSON as following format -> productDescription: String, esgGuideline: String, productEsgReport: Object with Compliance (String), Grade (Float)"
             };
             setPrompt('');
 
             setLoading(true);
+
+
+
             // API Calling and getting response code
             try {
-                // Make a POST request using axios
-                const response = await axios.post('http://127.0.0.1:5000/api/advisor', postData);
-
-                console.log("response.data -> ", response.data);
-                setRecentAnswer(response.data);
-                setPromptsArr(prevPromptsArr => [...prevPromptsArr, response?.data]);
+                const response = await axios.post('https://ecofactory.onrender.com/api/advisor', postData);
+                const data = response.data.bot; // Check if bot property exists
+                // console.log("data -> ", data);
+                // console.log("data -> ", JSON.parse(data));
+                // console.log("data parse -> ", data);
+                setRecentAnswer(JSON.parse(data));
+                setPromptsArr(prevPromptsArr => [...prevPromptsArr, JSON.parse(data)]);
                 setLoading(false);
                 setError(null); // Reset error state
             } catch (error) {
@@ -43,6 +47,7 @@ export default function ESGGuidelineChecker() {
                 setError(error.message); // Store error message in state
                 setLoading(false);
             }
+
         }
     };
 
@@ -95,7 +100,7 @@ export default function ESGGuidelineChecker() {
                             <div className="col d-flex flex-column justify-content-center align-items-center" style={{ margin: "0 auto", maxWidth: "800px" }}>
                                 <div><img src={cogwheel} style={{ width: "40px" }} alt="cogwheel" /></div>
                                 <h3 className='heading3 text-center'>&nbsp; Just select the product and relative ESG<br /> Guideline to check compliance </h3>
-                                <p className='main-text' style={{textAlignLast: "center"}}>&nbsp; &nbsp; An AI assistant, specialized and dedicated to sustainability
+                                <p className='main-text' style={{ textAlignLast: "center" }}>&nbsp; &nbsp; An AI assistant, specialized and dedicated to sustainability
                                     best practices and ESG guidelines documentation.
                                 </p>
                             </div>
@@ -128,11 +133,11 @@ export default function ESGGuidelineChecker() {
                                                                 <h2>ESG Guideline:</h2>
                                                                 <p>{prom.esgGuideline}</p>
                                                                 <h2>Product ESG Report:</h2>
-                                                                <p>Grade: {prom?.productEsgReport?.Grade}</p>
+                                                                <p>Grade: {prom?.productEsgReport?.grade}</p>
                                                                 <h3>Compliance:</h3>
-                                                                <p>{prom?.productEsgReport?.Compliance}</p>
-                                                                <h3>Analysis:</h3>
-                                                                <p>{prom?.productEsgReport?.Analysis}</p>
+                                                                <p>{prom?.productEsgReport?.compliance}</p>
+                                                                {/* <h3>Analysis:</h3>
+                                                                <p>{prom?.productEsgReport?.analysis}</p> */}
                                                             </div>
                                                             <div className="col-3"></div>
                                                         </div>

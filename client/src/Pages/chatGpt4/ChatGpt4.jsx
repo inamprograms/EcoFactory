@@ -30,7 +30,7 @@ export default function ChatGpt4() {
             // API Calling and getting response code
             try {
                 // Make a POST request using axios
-                const response = await axios.post('http://127.0.0.1:5000/api/eco_fac_gpt', postData);
+                const response = await axios.post('https://ecofactory.onrender.com/api/eco_fac_gpt', postData);
 
                 console.log("response.data -> ", response.data);
                 setRecentAnswer(response.data.response);
