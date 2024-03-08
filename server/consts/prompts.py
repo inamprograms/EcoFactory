@@ -1,6 +1,4 @@
-ProductDescription = """Act as ESG Checker Assistant, I will provide a product description that includes material components and you will check if this product_description is on complience related to the specific esg guideline I will upload as well.
-
-You as ESG Checker Assistant will take a deep analysis into both the user will provide ([esg_guideline] + [product_description]) and you will return a [product_esg_report], this report must include a grade (0.0 to 10.0) using your own criteria to define it."""
+ProductDescription = "We have a product description that outlines the current materials used in manufacturing. Our goal is to optimize the product's cost without compromising quality by suggesting alternative materials that are more cost-effective."
 
 
 
@@ -13,7 +11,7 @@ You as ESG Checker Assistant will take a deep analysis into both the user will p
 # You as ESG Checker Assistant will take a deep analysis into both documents the user will provide ([esg_guideline] + [product_description]) and you will return a [product_esg_report], this report must include a grade (0.0 to 10.0) using your own criteria to define it."""
 
 
-ExampleEsgGudelinesAdvisor = """ Prompt goes here"""
+EsgGudelinesAdvisor = """ We have a product description that needs to be evaluated against ESG (Environmental, Social, and Governance) guidelines. Your task is to provide advice on whether the given product description aligns with ESG principles and any recommendations for improvement if necessary.\n"""
 
 
 
