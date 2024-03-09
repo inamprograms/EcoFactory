@@ -5,7 +5,7 @@ import Sidebar from '../../Components/sideBar/SBar';
 import '../productOptimization/ProductOptimization.css'; // Import CSS file for additional styles
 
 
-export default function Pricing({children}) {
+export default function Pricing({ children, img, btnSvg }) {
     const [collapsed, setCollapsed] = useState(false);
 
 
@@ -18,20 +18,21 @@ export default function Pricing({children}) {
                     {/* <span class="big-icon" style={iconStyles}>{collapsed ? <>&#187;</>: <>&#171;</>}</span> */}
                     <span className={`big-icon ${collapsed ? 'rotate-left' : 'rotate-right'}`} style={{ ...iconStyles, color: "#ccc", marginLeft: collapsed ? '-3px' : '-10px' }}>{collapsed ? <>&#187;</> : <>&#171;</>}</span>
                 </div>
-                <div className="container-fluid d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
+                <div className="container-fluid d-flex justify-between align-items-center" style={{ height: "100vh" }}>
                     <div className="container-fluid" style={{ height: "96vh" }}>
                         <div className="row" style={{ backgroundColor: "#c1c1c1", height: "15%", borderTopLeftRadius: "25px", borderTopRightRadius: "25px" }}>
                             <div className="col ms-5 d-flex justify-center align-center">
                                 <h2 style={textStyle} className='my-auto '>{children ? children : "Plans"}</h2>
+                              {btnSvg && <img src={btnSvg  } className='ms-auto me-5' alt="btn" style={{width : "200px"}}/> }  
                             </div>
                         </div>
 
                         <div className="prompt-scroll-box row " style={{ backgroundColor: "#e6e6e6", height: "85%", borderBottomLeftRadius: "25px", borderBottomRightRadius: "25px" }}>
                             <div className="scroll-inner ">
-                                <div className="row mt-5 mb-3" style={{ backgroundColor: "#e6e6e6", height: "85%", borderBottomLeftRadius: "25px", borderBottomRightRadius: "25px" }}>
-                                    <div className="col d-flex flex-column justify-content-center align-items-center" style={{ margin: "0 auto", maxWidth: "800px" }}>
+                                <div className="row mt-5 mx-auto mb-3 w-100" style={{ backgroundColor: "#e6e6e6", height: "85%", borderBottomLeftRadius: "25px", borderBottomRightRadius: "25px" }}>
+                                    <div className={`col-12 w-100 ${!img ? "d-flex flex-column justify-content-center align-items-center" : ""}   `} style={{ margin: "0 auto", maxWidth: !img && "800px" }}>
                                         {/* <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, commodi. Adipisci ex beatae nihil debitis eveniet, id ducimus! Quae assumenda perspiciatis recusandae cumque fugiat est.</p> */}
-                                        <img src={PRICING_TABEL} className='my-3' alt="pricing-tabel" />
+                                        <img src={img ? img : PRICING_TABEL} className=' ' style={{ width: '100%', height: "100%" }} alt="pricing-tabel" />
                                     </div>
                                 </div>
 

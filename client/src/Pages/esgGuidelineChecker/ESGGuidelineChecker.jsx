@@ -6,7 +6,8 @@ import Spinner from '../../Components/loader/Spinner';
 import Sidebar from '../../Components/sideBar/SBar';
 import chatgptLogo from "./CHATGPT_LOGO_WHITE.svg";
 import './ESGGuidelineChecker.css'; // Import CSS file for additional styles
-import cogwheel from "./cogwheel-2.svg";
+import cogwheel from "../../Assets/ICONS/ICON_ECOFACTOR.svg";
+import BOX from '../../Assets/ICONS/4 BOXES_ESG_GUIDELINE.svg'
 
 export default function ESGGuidelineChecker() {
     const [collapsed, setCollapsed] = useState(false);
@@ -98,11 +99,13 @@ export default function ESGGuidelineChecker() {
 
                         {promptsArr.length === 0 && <div className="row" style={{ backgroundColor: "#e6e6e6", height: "70%" }}>
                             <div className="col d-flex flex-column justify-content-center align-items-center" style={{ margin: "0 auto", maxWidth: "800px" }}>
-                                <div><img src={cogwheel} style={{ width: "40px" }} alt="cogwheel" /></div>
+                                <div><img src={cogwheel} className='mb-3' style={{ width: "40px" }} alt="cogwheel" /></div>
                                 <h3 className='heading3 text-center'>&nbsp; Just select the product and relative ESG<br /> Guideline to check compliance </h3>
                                 <p className='main-text' style={{ textAlignLast: "center" }}>&nbsp; &nbsp; An AI assistant, specialized and dedicated to sustainability
                                     best practices and ESG guidelines documentation.
                                 </p>
+                                <img src={BOX} alt="P-box" className='mt-5' />
+
                             </div>
                         </div>}
 

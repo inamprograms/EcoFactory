@@ -6,7 +6,9 @@ import Spinner from '../../Components/loader/Spinner';
 import Sidebar from '../../Components/sideBar/SBar';
 import chatgptLogo from "./CHATGPT_LOGO_WHITE.svg";
 import './ChatGpt4.css'; // Import CSS file for additional styles
-import cogwheel from "./cogwheel-2.svg";
+import cogwheel from "../../Assets/ICONS/ICON_ECOFACTOR.svg";
+import BOX from '../../Assets/ICONS/4 BOXES_CHATGPT4.svg'
+
 
 export default function ChatGpt4() {
     const [collapsed, setCollapsed] = useState(false);
@@ -50,8 +52,8 @@ export default function ChatGpt4() {
         <div id='productOptimization' style={{ display: 'flex', height: '100vh', minHeight: '400px' }} >
 
             <Sidebar collapsed={collapsed} />
-            <main className='main' style={{ width: collapsed ? "100vw" : "77vw", backgroundColor: "#2f3135", }}>
-                <div onClick={() => setCollapsed(!collapsed)} style={{ cursor: "pointer", color: "#c1c1c1" }}>
+            <main className='main-gpt' style={{ width: collapsed ? "100vw" : "77vw", backgroundColor: "#2f3135", }}>
+            <div onClick={() => setCollapsed(!collapsed)} style={{ cursor: "pointer", color: "#c1c1c1" }}>
                     <span className={`big-icon ${collapsed ? 'rotate-left' : 'rotate-right'}`} style={{ ...iconStyles, color: "#ccc", marginLeft: collapsed ? '-3px' : '-10px' }}>{collapsed ? <>&#187;</> : <>&#171;</>}</span>
                 </div>
                 <div className="container-fluid d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
@@ -92,10 +94,12 @@ export default function ChatGpt4() {
 
                         {promptsArr.length === 0 && <div className="row" style={{ backgroundColor: "#e6e6e6", height: "70%" }}>
                             <div className="col d-flex flex-column justify-content-center align-items-center" style={{ margin: "0 auto", maxWidth: "800px" }}>
-                                <div><img src={cogwheel} className='rounded circle' style={{ width: '40px' }} alt="cogwheel" /></div>
+                                <div><img src={cogwheel} className='rounded circle mb-3' style={{ width: '40px' }} alt="cogwheel" /></div>
                                 <h3 className='heading3'>&nbsp; How can I help you today?</h3>
                                 <p className='main-text ' style={{ textAlignLast: "center" }}>&nbsp; &nbsp;Convenient access to all ChatGPT4 potential, in one simple and easy place, which means that the PRO and ENTERPRISE paid members will be able to access chatgpt4 directly from ECOFACTOR app, without the need to signup to ChatGPT Plus account.
                                 </p>
+                                <img src={BOX} alt="P-box" className='mt-5' />
+
                             </div>
                         </div>}
 

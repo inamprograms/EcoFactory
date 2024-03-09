@@ -6,8 +6,9 @@ import ICON_CUSTOM_GPT from "../../Assets/ICONS/ICON_CUSTOM_GPT.svg";
 import ICON_ESG_ACTIVE from '../../Assets/ICONS/ICON_ESG_GUIDELINE active.svg';
 import ICON_ESG from '../../Assets/ICONS/ICON_ESG_GUIDELINE.svg';
 
-import GPT_AI_ACTIVE from "../../Assets/ICONS/ICON_GPT4 active.svg";
-import GPT_AI from "../../Assets/ICONS/ICON_GPT4.svg";
+import GPT_AI_ACTIVE from "../../Assets/ICONS/ICON_GREEN_CHATGPT.png";
+import GPT_AI from "../../Assets/ICONS/ICO_WHITE_CHATGPT.png";
+
 
 import ICON_GUIDLINES_ACTIVE from '../../Assets/ICONS/ICON_GUIDELINE_DATABASE active.svg';
 import ICON_GUIDLINES from '../../Assets/ICONS/ICON_GUIDELINE_DATABASE.svg';
@@ -47,7 +48,7 @@ export default function SBar({ collapsed }) {
         { icon: ICON_PRODUCT, title: 'Products Catalog', to: '/products', iconActive: ICON_PRODUCT_ACTIVE },
         { icon: ICON_MATERIAL, title: 'Material Catalog', to: '/materials', iconActive: ICON_MATERIAL_ACTIVE },
         { icon: ICON_SUPLIERS, title: 'Supplier Directory', to: '/suppliers', iconActive: ICON_SUPLIERS_ACTIVE },
-        { icon: ICON_GUIDLINES, title: 'USG Guidlines', to: '/guidelines', iconActive: ICON_GUIDLINES_ACTIVE },
+        { icon: ICON_GUIDLINES, title: 'ESG Guidelines', to: '/guidelines', iconActive: ICON_GUIDLINES_ACTIVE },
     ]
 
     const pages = [
@@ -105,9 +106,9 @@ export default function SBar({ collapsed }) {
                                 {pages.map((currElm) => {
                                     return (
                                         <>
-                                            <Link to={currElm.to} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", cursor: currElm.disable && "not-allowed", color: currElm.disable ? "#666" : currElm.to === path ? "#1bd4ad" : "#f2f2f2", textDecoration: "none", marginBottom: ".7rem" }}>
+                                            <Link  to={currElm.to} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", cursor: currElm.disable && "not-allowed", color: currElm.disable ? "#666" : currElm.to === path ? "#1bd4ad" : "#f2f2f2", textDecoration: "none", marginBottom: ".7rem" }}>
                                                 <span>
-                                                    <img src={currElm.to === path ? currElm.iconActive : currElm.icon} alt="icon" style={{ width: '1.5rem', marginRight: ".9rem" }} />
+                                                    <img src={currElm.to === path ? currElm.iconActive : currElm.icon} alt="icon" style={{ width: '1.4rem', marginRight: ".9rem" }} />
                                                     <span>{currElm.title} <small>{currElm.subTitle}</small></span>
                                                 </span>
                                                 <BiDotsHorizontalRounded />

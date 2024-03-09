@@ -6,7 +6,8 @@ import Spinner from '../../Components/loader/Spinner';
 import Sidebar from '../../Components/sideBar/SBar';
 import chatgptLogo from "./CHATGPT_LOGO_WHITE.svg";
 import './ProductOptimization.css'; // Import CSS file for additional styles
-import cogwheel from "./cogwheel-2.svg";
+import cogwheel from "../../Assets/ICONS/ICON_ECOFACTOR.svg";
+import BOX from '../../Assets/ICONS/4 BOXES_PRODUCT_OPTIMIZER.svg'
 
 export default function ProductOptimization() {
     const [collapsed, setCollapsed] = useState(false);
@@ -86,10 +87,12 @@ export default function ProductOptimization() {
 
                         {promptsArr.length === 0 && <div className="row" style={{ backgroundColor: "#e6e6e6", height: "70%" }}>
                             <div className="col d-flex flex-column justify-content-center align-items-center" style={{ margin: "0 auto", maxWidth: "800px" }}>
-                                <div><img src={cogwheel} className='rounded circle' style={{ width: '40px' }} alt="cogwheel" /></div>
+                                <div>
+                                <img src={cogwheel} className='rounded circle mb-3' style={{ width: '40px' }} alt="cogwheel" /></div>
                                 <h3 className='heading3'>&nbsp; Just select the product you want to optimize,<br /> and describe below what you want to optimize...</h3>
                                 <p className='main-text ' style={{ textAlignLast: "center" }}>&nbsp; &nbsp;An AI assistant versatile and effective in helping you maximize your productivity and expand the growth horizons of your business.
                                 </p>
+                                <img src={BOX} alt="P-box" className='mt-5' />
                             </div>
                         </div>}
 
@@ -191,5 +194,5 @@ const profileStyle = {
 const profileUserStyle = {
     width: '4.5%',
     padding: '7px',
-    marginTop : '-5px'
+    marginTop: '-5px'
 };
