@@ -98,13 +98,13 @@ export default function ESGGuidelineChecker() {
 
 
                         {promptsArr.length === 0 && <div className="row" style={{ backgroundColor: "#e6e6e6", height: "70%" }}>
-                            <div className="col d-flex flex-column justify-content-center align-items-center" style={{ margin: "0 auto", maxWidth: "800px" }}>
-                                <div><img src={cogwheel} className='mb-3' style={{ width: "40px" }} alt="cogwheel" /></div>
+                            <div className="col d-flex flex-column gap-3 justify-content-center align-items-center" style={{ margin: "0 auto", maxWidth: "800px" }}>
+                                <div><img src={cogwheel} className='' style={{ width: "40px" }} alt="cogwheel" /></div>
                                 <h3 className='heading3 text-center'>&nbsp; Just select the product and relative ESG<br /> Guideline to check compliance </h3>
                                 <p className='main-text' style={{ textAlignLast: "center" }}>&nbsp; &nbsp; An AI assistant, specialized and dedicated to sustainability
                                     best practices and ESG guidelines documentation.
                                 </p>
-                                <img src={BOX} alt="P-box" className='mt-5' />
+                                <img src={BOX} alt="P-box" className='' style={{maxWidth : "650px"}} />
 
                             </div>
                         </div>}

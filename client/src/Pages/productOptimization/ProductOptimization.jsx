@@ -86,13 +86,13 @@ export default function ProductOptimization() {
 
 
                         {promptsArr.length === 0 && <div className="row" style={{ backgroundColor: "#e6e6e6", height: "70%" }}>
-                            <div className="col d-flex flex-column justify-content-center align-items-center" style={{ margin: "0 auto", maxWidth: "800px" }}>
+                            <div className="col d-flex flex-column gap-3 py-2 justify-content-center align-items-center" style={{ margin: "0 auto", maxWidth: "800px" }}>
                                 <div>
-                                <img src={cogwheel} className='rounded circle mb-3' style={{ width: '40px' }} alt="cogwheel" /></div>
+                                <img src={cogwheel} className='rounded circle ' style={{ width: '40px' }} alt="cogwheel" /></div>
                                 <h3 className='heading3'>&nbsp; Just select the product you want to optimize,<br /> and describe below what you want to optimize...</h3>
                                 <p className='main-text ' style={{ textAlignLast: "center" }}>&nbsp; &nbsp;An AI assistant versatile and effective in helping you maximize your productivity and expand the growth horizons of your business.
                                 </p>
-                                <img src={BOX} alt="P-box" className='mt-5' />
+                                <img src={BOX} alt="P-box" style={{maxWidth : "650px"}} className='' />
                             </div>
                         </div>}
 

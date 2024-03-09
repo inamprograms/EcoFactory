@@ -61,9 +61,9 @@ export default function ChatGpt4() {
                         <div className="row" style={{ backgroundColor: "#c1c1c1", height: "15%", borderTopLeftRadius: "25px", borderTopRightRadius: "25px" }}>
                             <div className="col">
                                 <div className="row">
-                                    <div className="col-5 ms-3 mt-4">
+                                    <div className="col-6 col-xl-5 ms-3 mt-4">
                                         {/* <h2  className='pt-4'>ChatGPT 4</h2> */}
-                                        <select style={{...textStyle, backgroundColor: "#c1c1c1", border: "none", fontSize: "24px"}} class="form-select" aria-label="Default select example">
+                                        <select style={{...textStyle, backgroundColor: "#c1c1c1", border: "none", fontSize: "24px"}} className="form-select" aria-label="Default select example">
                                             <option selected><h1><b>ChatGPT 4</b></h1></option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
@@ -93,12 +93,12 @@ export default function ChatGpt4() {
 
 
                         {promptsArr.length === 0 && <div className="row" style={{ backgroundColor: "#e6e6e6", height: "70%" }}>
-                            <div className="col d-flex flex-column justify-content-center align-items-center" style={{ margin: "0 auto", maxWidth: "800px" }}>
-                                <div><img src={cogwheel} className='rounded circle mb-3' style={{ width: '40px' }} alt="cogwheel" /></div>
+                            <div className="col d-flex flex-column gap-3 justify-content-center align-items-center" style={{ margin: "0 auto", maxWidth: "800px" }}>
+                                <div><img src={cogwheel} className='rounded circle ' style={{ width: '40px' }} alt="cogwheel" /></div>
                                 <h3 className='heading3'>&nbsp; How can I help you today?</h3>
                                 <p className='main-text ' style={{ textAlignLast: "center" }}>&nbsp; &nbsp;Convenient access to all ChatGPT4 potential, in one simple and easy place, which means that the PRO and ENTERPRISE paid members will be able to access chatgpt4 directly from ECOFACTOR app, without the need to signup to ChatGPT Plus account.
                                 </p>
-                                <img src={BOX} alt="P-box" className='mt-5' />
+                                <img src={BOX} alt="P-box" className='' style={{maxWidth : "650px"}} />
 
                             </div>
                         </div>}
