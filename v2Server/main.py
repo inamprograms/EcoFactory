@@ -1,7 +1,7 @@
 from scrapper import WebScrapper
 
 def main():
-    query = "suppliers for memory chips"
+    query = "suppliers for . chips"
     num_results = 10
 
     # Create an instance of the WebScraper class
