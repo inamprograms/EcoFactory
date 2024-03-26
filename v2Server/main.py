@@ -1,7 +1,7 @@
 from scrapper import WebScrapper
 
 def main():
-    query = "suppliers for . chips"
+    query = "what are components will be used to manufecture IOT based single phase energy meter"
     num_results = 10
 
     # Create an instance of the WebScraper class
