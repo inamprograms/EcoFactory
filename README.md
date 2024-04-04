@@ -116,7 +116,7 @@ To install and run EcoFactory Application locally, follow these steps:
 3. **Install the packages:**
 
     ```bash
-        cd server 
+        cd v2Server 
         pip install -r requirements.txt
     
     ```
