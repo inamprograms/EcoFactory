@@ -3,6 +3,7 @@ from vectara_RAG import VectaraRAG
 if __name__ == "__main__":
     rag = VectaraRAG()
     corpus_id = os.getenv("VECTARA_CORPUS_ID")
+
     while True:
         print("\nChoose an action:")
         print("1. Create a new corpus")
