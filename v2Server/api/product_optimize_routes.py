@@ -20,5 +20,5 @@ def optimize_product():
     response = rag.ask_question_with_summary(summary, description)
     print("LLM response: ", response)
 
-    return jsonify({'Response': response}), 201
+    return jsonify({'Response':response}), 201
 
