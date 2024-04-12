@@ -30,12 +30,11 @@ export default function ProductOptimization() {
             setLoading(true);
             // API Calling and getting response code
             try {
-                // Make a POST request using axios
-                const response = await axios.post('https://ecofactory.onrender.com/api/optimize', postData);
-
-                // console.log("response.data -> ", JSON.parse(response.data?.bot).response);
-                setRecentAnswer(JSON.parse(response.data?.bot).response);
-                setPromptsArr(prevPromptsArr => [...prevPromptsArr, JSON.parse(response.data?.bot).response]);
+                // Make a POST request using axios                             
+                const response = await axios.post('http://127.0.0.1:5000/api/product_optimize', postData);
+                console.log("response.data -> ", response.data.response);
+                setRecentAnswer(response.data.response);
+                setPromptsArr(prevPromptsArr => [...prevPromptsArr, response.data.response]);
                 setLoading(false);
                 setError(null); // Reset error state
             } catch (error) {

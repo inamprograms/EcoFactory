@@ -15,10 +15,13 @@ product_optimize_routes = Blueprint('product_optimize_routes', __name__)
 def optimize_product():
     
     description = request.json.get('query')
+    print("Description: " , description)
     summary = rag.query_vectara(corpus_id, description, 3, "en")
     print("Vectara response: ",summary)
     response = rag.ask_question_with_summary(summary, description)
     print("LLM response: ", response)
-
-    return jsonify({'Response':response}), 201
+    
+    # return jsonify({'Response':response}), 201
+    # return {'response' : response}, 201
+    return response , 201
 
