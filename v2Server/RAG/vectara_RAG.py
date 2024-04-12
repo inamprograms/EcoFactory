@@ -4,6 +4,8 @@ import os
 import openai
 from openai import OpenAI
 
+from consts.prompts import ProductDescription
+
 class VectaraRAG:
     def __init__(self):
         """
@@ -61,11 +63,12 @@ class VectaraRAG:
             messages=[
                 {"role": "user",
                 "content": 
+                f"Follow these instructions: {ProductDescription}\n"
                 f"We have provided context information below. \n"
                 f"---------------------\n"
                 f"{summary}"
                 f"\n---------------------\n"
-                f"Given this information, please answer the question: {question}"
+                f"Note the instructions and context provided then answer this : {question} and use the provided contex"
                 }
             ]
         )
