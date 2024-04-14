@@ -65,31 +65,26 @@ export default function SBar({ collapsed }) {
         { icon: ICON_ESG, title: 'History chat conversation 2' },
         { icon: ICON_OPTIMIZATION, title: 'History chat conversation 3' },
 
-
-
     ]
 
     return (
-        <Sidebar className='sideBar' collapsed={collapsed} style={{ display: collapsed ? "none" : "block", width: '23vw', position: "relative" }}>
+        <Sidebar className='sideBar' collapsed={collapsed} style={{ display: collapsed ? "none" : "block", height : '' , width: '23vw', position: "relative" }}>
             {/* side bar content  */}
             {/* Aleeza you have to work here */}
-            <div className="container-fluid sideBar-scroll " style={{ backgroundColor: "#2f3135", height: '100vh', }}>
+            <div className="container-fluid sideBar-scroll " style={{ backgroundColor: "#2f3135", height: '90vh', }}>
                 <div>
-                    <img src={colorBar} alt="" style={{ width: "100%", position: "relative", top: "-14px", left: "-7px" }} />
-                    <div className="row">
-                        <div className="col px-4 my-2 "><img src={ecofactor} alt="" style={{ height: '4.2rem', width: "100%", marginLeft: '.7rem' }} /></div>
-                    </div>
+                 
 
                     <div className="row ">
-                        <div className="col mx-3 me-1 rounded p-2 " style={{ backgroundColor: "#494c51", }}>
+                        <div className="col mx-3 mt-4 me-1 rounded p-2 " style={{ backgroundColor: "#494c51", }}>
                             <h6 className='text-white text-center' >Inventory</h6>
-                            <div className="d-flex gap-2 ">
+                            <div className=" ">
                                 {inventoryData.map((currElm) => {
                                     return (
                                         <>
-                                            <div onClick={() => navigate(currElm.to)} className='px-3' style={{ border: currElm.to === path && "1px solid #17c5c4", cursor: "pointer", paddingTop: "10px", paddingBottom: "9px", backgroundColor: "#2f3135", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center', borderRadius: "10px" }}>
+                                            <div onClick={() => navigate(currElm.to)} className='my-2 py-1 px-2' style={{ border: currElm.to === path && "1px solid #17c5c4", cursor: "pointer", backgroundColor: "#2f3135", display: "flex",   alignItems: 'center', gap : '1rem', borderRadius: "10px" }}>
                                                 <img src={currElm.to === path ? currElm.iconActive : currElm.icon} alt="icon-one" style={{ fill: "red", width: '1.5rem' }} />
-                                                <p className='text-center mt-2 mb-0' style={{ color: currElm.to === path ? "#17c5c4" : "#999999", fontSize: ".7rem" }}>{currElm.title}</p>
+                                                <p className=' mt-2 mb-0' style={{ color: currElm.to === path ? "#17c5c4" : "#999999", fontSize: "1rem" }}>{currElm.title}</p>
                                             </div>
                                         </>
                                     )
@@ -101,7 +96,7 @@ export default function SBar({ collapsed }) {
                 <div className="scroll-box">
                     <div className="scroll-inner">
                         <div className="row">
-                            <div className="col mx-3 mt-5 " >
+                            <div className="col mx-3 mt-3 " >
 
                                 {pages.map((currElm) => {
                                     return (
