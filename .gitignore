@@ -5,3 +5,5 @@ server/consts/__pycache__
 
 v2Server/__pycache__
 v2Server/.google-cookie
+
+__pycache__/

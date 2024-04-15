@@ -3,6 +3,7 @@
 from flask import Blueprint, request, jsonify
 from RAG.vectara_RAG import VectaraRAG
 import os
+from utils.file_utils import *
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -21,7 +22,12 @@ def optimize_product():
     response = rag.ask_question_with_summary(summary, description)
     print("LLM response: ", response)
     
-    # return jsonify({'Response':response}), 201
-    # return {'response' : response}, 201
     return response , 201
 
+@product_optimize_routes.route('/upload_file', methods=['POST'])
+def upload():
+    
+    file_path = upload_file()
+    rag.upload_data(corpus_id, file_path)
+    delete_temp_file(file_path)
+    return "File Uploaded Successfully\n Now you can chat for the product optimization"
