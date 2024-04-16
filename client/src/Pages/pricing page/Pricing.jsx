@@ -20,7 +20,7 @@ export default function Pricing({ children, img, btnSvg }) {
         <div>
             <div style={{ height: '10vh', backgroundColor: '#2f3135' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '100%' }}>
-                    <img src={ecofactor} alt="" style={{ height: '4.2rem', marginTop: ' 1rem', marginLeft: '1rem' }} />
+                    <img src={ecofactor} alt="" style={{ height: '4.2rem', marginTop: ' 1.9rem', marginLeft: '1.2rem' }} />
                     <h2 style={textStyle} >{children}</h2>
 
                 </div>
@@ -31,10 +31,10 @@ export default function Pricing({ children, img, btnSvg }) {
                 {collapsed && <SBarCollapsed />}
 
 
-                <main className='main' style={{ width: collapsed ? "95vw" : "77vw", backgroundColor: "#2f3135", }}>
+                <main className='main' style={{ width: collapsed ? "96vw" : "77vw", backgroundColor: "#2f3135", }}>
                     <div onClick={() => setCollapsed(!collapsed)} style={{ cursor: "pointer", color: "#c1c1c1" }}>
                         {/* <span class="big-icon" style={iconStyles}>{collapsed ? <>&#187;</>: <>&#171;</>}</span> */}
-                        <span className={`big-icon ${collapsed ? 'rotate-left' : 'rotate-right'}`} style={{ ...iconStyles, color: "#ccc", marginLeft: collapsed ? '-3px' : '-10px' }}>{collapsed ? <>&#187;</> : <>&#171;</>}</span>
+                        <span className={`big-icon ${collapsed ? 'rotate-left' : 'rotate-right'}`} style={{ ...iconStyles, color: "#ccc", marginLeft: collapsed ? '-6px' : '-10px' }}>{collapsed ? <>&#187;</> : <>&#171;</>}</span>
                     </div>
                     <div className="container-fluid d-flex justify-between align-items-center" style={{ height: "90vh" }}>
                         <div className="container-fluid" style={{ height: "100%" }}>
@@ -79,5 +79,7 @@ const textStyle = {
     fontFamily: '"Roboto", sans-serif',
     fontWeight: 300,
     color: 'white',
-    marginRight: '1rem'
+    marginRight: '2.2rem',
+    marginTop : '1.5rem'
+
 };

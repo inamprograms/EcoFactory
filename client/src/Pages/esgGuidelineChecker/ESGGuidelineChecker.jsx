@@ -52,7 +52,6 @@ export default function ESGGuidelineChecker() {
                 setError(error.message); // Store error message in state
                 setLoading(false);
             }
-
         }
     };
 
@@ -64,7 +63,7 @@ export default function ESGGuidelineChecker() {
         <div>
             <div style={{ height: '10vh', backgroundColor: '#2f3135' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '100%' }}>
-                    <img src={ecofactor} alt="" style={{ height: '4.2rem', marginTop: ' 1rem', marginLeft: '1rem' }} />
+                    <img src={ecofactor} alt="" style={{ height: '4.2rem',  marginTop: ' 1.9rem', marginLeft: '1.2rem' }} />
                     <h2 style={textStyle} >ESG Guidline Checker</h2>
 
                 </div>
@@ -74,9 +73,9 @@ export default function ESGGuidelineChecker() {
 
                 <Sidebar collapsed={collapsed} />
                 {collapsed && <SBarCollapsed />}
-                <main className='main' style={{ width: collapsed ? "95vw" : "77vw", backgroundColor: "#2f3135", }}>
+                <main className='main' style={{ width: collapsed ? "96vw" : "77vw", backgroundColor: "#2f3135", }}>
                     <div onClick={() => setCollapsed(!collapsed)} style={{ cursor: "pointer", color: "#c1c1c1" }}>
-                        <span className={`big-icon ${collapsed ? 'rotate-left' : 'rotate-right'}`} style={{ ...iconStyles, color: "#ccc", marginLeft: collapsed ? '-3px' : '-10px' }}>{collapsed ? <>&#187;</> : <>&#171;</>}</span>
+                        <span className={`big-icon ${collapsed ? 'rotate-left' : 'rotate-right'}`} style={{ ...iconStyles, color: "#ccc", marginLeft: collapsed ? '-6px' : '-10px' }}>{collapsed ? <>&#187;</> : <>&#171;</>}</span>
                     </div>
                     <div className="container-fluid d-flex justify-content-center align-items-center" style={{ height: "100%" }}>
                         <div className="container-fluid" style={{ height: "100%", display: 'flex', flexDirection: 'column' }}>
@@ -160,7 +159,7 @@ export default function ESGGuidelineChecker() {
                                 <div className="col " style={{ backgroundColor: "#e6e6e6", borderBottomLeftRadius: "25px", borderBottomRightRadius: "25px" }}>
                                     <div className="row">
                                         <div className="col"></div>
-                                        <div className="col-11 ">
+                                        <div className={`${collapsed ? 'col-9' : 'col-11' } mx-auto`}>
                                             <div className="input-group mb-3" style={{ border: "1px black solid", borderRadius: "20px" }}>
                                                 <button className="input-group-text" id="basic-addon1" style={{ fontSize: "1.8rem", backgroundColor: "white", borderTopLeftRadius: "20px", borderBottomLeftRadius: "20px", color: "#494c51", border: "none", borderRight: "none" }}><IoMdAttach /></button>
                                                 <input value={prompt} onChange={(e) => setPrompt(e.target.value)} type="text" className="form-control " placeholder="Please type or say what kind of optimizations you are looking for ?" aria-label="Username" aria-describedby="basic-addon1" />
@@ -196,9 +195,10 @@ const textStyle = {
     fontFamily: '"Roboto", sans-serif',
     fontWeight: 300,
     color: 'white',
-    marginRight: '1rem'
-};
+    marginRight: '2.2rem',
+    marginTop : '1.5rem'
 
+};
 const profileStyle = {
     width: '3%',
     padding: '7px',

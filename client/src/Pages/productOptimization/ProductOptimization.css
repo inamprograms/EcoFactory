@@ -136,6 +136,7 @@ input {
   font-size: 1.3rem;
   animation: spinner linear 2s infinite;
 }
+
 @keyframes spinner {
   0% {
     transform: rotate(0);
@@ -147,6 +148,32 @@ input {
     transform: rotate(360deg);
   }
 }
+
+.compact-sb-icon:hover + .compact-sb-text {
+  opacity: 1;
+  z-index: 10;
+  transition: opacity 0.3s ease-in-out;
+}
+.compact-sb-text{
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+}
+.compact-sb-text::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -8.9px;
+  border-width: 10px;
+  border-style: solid;
+    /* border-radius: 2px; */
+  border-color: transparent black transparent transparent;
+}
+
+
+
+
 
 /* MEDIA QUERY */
 

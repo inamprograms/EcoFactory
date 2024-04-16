@@ -16,7 +16,7 @@ function CustomRoutes() {
           <Route path="/" element={<ProductOptimization />} />
           <Route path="/esg-guidlines" element={<ESGGuidelineChecker />} />
           <Route path="/regular-chatgpt4" element={<ChatGpt4 />} />
-          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/pricing/:title" element={<Pricing />} />
           <Route path="/products" element={<Products />} />
           <Route path="/materials" element={<Materials />} />
           <Route path="/suppliers" element={<Suppliers />} />
