@@ -1,8 +1,8 @@
 import '../../Pages/productOptimization/ProductOptimization.css'
 import BADGE_PRO from "../../Assets/ICONS/BADGE_PRO.svg";
 import colorBar from "../../Assets/ICONS/COLORBAR.png";
-import dark from "../../Assets/ICONS/Ativo 18.svg";
-import light from "../../Assets/ICONS/ACTIVE_LIGHT_ICON.svg";
+import dark from "../../Assets/ICONS/ICO_DARK_MODE.svg";
+import light from "../../Assets/ICONS/ICO_LIGHT_MODE.svg";
 
 
 import ICON_CUSTOM_GPT from "../../Assets/ICONS/ICON_CUSTOM_GPT.svg";
@@ -102,8 +102,8 @@ const SBarCollapsed = () => {
 
         <div className='bottom-user d-flex flex-column gap-2' style={{ position: 'absolute', bottom: '1.7rem', backgroundColor : '#2f3135' }} >
           <img className='rounded-pill ms-3' src={"https://camo.githubusercontent.com/1e6de73a5a5d1800c3f18f294e4b019466d6daa7ac4ddbe713afc5e3ac062547/68747470733a2f2f6d656469612e6c6963646e2e636f6d2f646d732f696d6167652f4434443033415148556d6b357863444d6574412f70726f66696c652d646973706c617970686f746f2d736872696e6b5f3430305f3430302f302f313639333430353830343034313f653d3137313532313238303026763d6265746126743d307a4b74676b73684967694439786d6e456a425a7158755731343547774e5676386f6d3958576b424f7259"} alt="" style={{ width: '2.8rem', border : '1px solid #e6e6e6 ' }} />
-          <img className='ms-2' src={light} alt="" style={{ width: '90%', }} />
-          <img className='' src={dark} alt="" style={{ width: '1.8rem', marginLeft : '1.3rem' }} />
+          <img className='ms-2' src={light} alt="" style={{ width: '90%',  }} />
+          <img className='' src={dark} alt="" style={{ width: '2rem', marginLeft : '1.3rem' }} />
 
         </div>
 
