@@ -15,8 +15,10 @@ product_optimize_routes = Blueprint('product_optimize_routes', __name__)
 @product_optimize_routes.route('/product_optimize', methods=['POST'])
 def optimize_product():
     
-    # corpus_id = request.form['corpus_id']
+    corpus_id = request.json.get('corpus_id')
     description = request.json.get('query')
+    print(corpus_id)
+    print(description)
     print("Description: " , description)
     summary = rag.query_vectara(corpus_id, description, 3, "en")
     print("Vectara response: ",summary)
@@ -35,7 +37,7 @@ def upload():
     return "File Uploaded Successfully\n Now you can chat for the product optimization " + str(corpus_id)
     
 
-@product_optimize_routes.route('/create_corpus', methods=['POST'])
+@product_optimize_routes.route('/create_corpus', methods=['GET'])
 def create_route():
     
     corpus_name = "Ecofactor"
