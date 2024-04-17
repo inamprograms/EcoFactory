@@ -22,7 +22,7 @@ def optimize_product():
     response = rag.ask_question_with_summary(summary, description)
     print("LLM response: ", response)
     
-    return response , 201
+    return response , 200
 
 @product_optimize_routes.route('/upload_file', methods=['POST'])
 def upload():
@@ -30,4 +30,23 @@ def upload():
     file_path = upload_file()
     rag.upload_data(corpus_id, file_path)
     delete_temp_file(file_path)
+<<<<<<< main
     return "File Uploaded Successfully\n Now you can chat for the product optimization"
+=======
+    return "File Uploaded Successfully\n Now you can chat for the product optimization " + str(corpus_id)
+    
+
+@product_optimize_routes.route('/create_corpus', methods=['GET'])
+def create():
+    
+    corpus_name = "Ecofactor"
+    corpus_id = rag.create_corpus(corpus_name)
+    return str(corpus_id), 201
+
+@product_optimize_routes.route('/delete_corpus', methods=['POST'])
+def delete():
+    
+    corpus_id = request.json.get("corpus_id")
+    res = rag.delete_corpus(corpus_id)
+    return res
+>>>>>>> local
