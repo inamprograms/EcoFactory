@@ -282,7 +282,7 @@ export default function ProductOptimization() {
                                                                 <input type="file" id="upload" hidden onChange={handleFileSelect} disabled={corpusID === null} />
                                                                 <div style={{ cursor: 'pointer', backgroundColor: 'white', overflow: 'hidden', fontSize: "1.8rem", borderTopLeftRadius: "20px", borderBottomLeftRadius: "20px", border: "none", borderRight: "none" }}>
                                                                     <label htmlFor="upload" className=' input-group-text' style={{ color: corpusID === null ? '#6666' : '#494c51', backgroundColor: 'white', height: '100%', cursor: corpusID === null ? 'not-allowed' : 'pointer' }}> <IoMdAttach className="fs-2" style={{ backgroundColor: 'transparent' }} /></label>
-                                                                </div>
+                                                                </div> 
                                                             </>
                                                             :
                                                             uploadingFile
