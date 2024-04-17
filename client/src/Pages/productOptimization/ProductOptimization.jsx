@@ -1,22 +1,21 @@
 import axios from 'axios'; // Import axios for making HTTP requests
 import { useState } from 'react';
+import { FaUpload } from "react-icons/fa";
 import { IoMdAttach } from "react-icons/io";
 import { ThreeDots } from "react-loader-spinner";
+import { toast } from 'react-toastify';
+import BTN_START from '../../Assets/ICONS/BT_START_CHAT.svg';
+import GUIDE_DOC from '../../Assets/ICONS/CHAT_ASSETS-page-1.png';
+import cogwheel from "../../Assets/ICONS/ICON_ECOFACTOR.svg";
+import ecofactor from "../../Assets/ICONS/LOGO_ECOFACTOR_FINAL (1).svg";
+import STEP_ONE from '../../Assets/ICONS/STEP1.svg';
+import STEP_TWO from '../../Assets/ICONS/STEP2.svg';
+import STEP_THREE from '../../Assets/ICONS/STEP3.svg';
 import Spinner from '../../Components/loader/Spinner';
 import Sidebar from '../../Components/sideBar/SBar';
+import SBarCollapsed from '../../Components/sideBar/SBarCollapsed';
 import chatgptLogo from "./CHATGPT_LOGO_WHITE.svg";
 import './ProductOptimization.css'; // Import CSS file for additional styles
-import cogwheel from "../../Assets/ICONS/ICON_ECOFACTOR.svg";
-import BTN_START from '../../Assets/ICONS/BT_START_CHAT.svg'
-import SBarCollapsed from '../../Components/sideBar/SBarCollapsed';
-import ecofactor from "../../Assets/ICONS/LOGO_ECOFACTOR_FINAL (1).svg";
-import colorBar from "../../Assets/ICONS/COLORBAR.png";
-import STEP_ONE from '../../Assets/ICONS/STEP1.svg'
-import STEP_TWO from '../../Assets/ICONS/STEP2.svg'
-import STEP_THREE from '../../Assets/ICONS/STEP3.svg'
-import GUIDE_DOC from '../../Assets/ICONS/CHAT_ASSETS-page-1.png'
-import { FaUpload } from "react-icons/fa";
-import { toast } from 'react-toastify';
 
 
 
@@ -25,6 +24,7 @@ import { toast } from 'react-toastify';
 export default function ProductOptimization() {
     const [collapsed, setCollapsed] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [creatingCorpus, setCreatingCorpus] = useState(false);
     const [prompt, setPrompt] = useState('');
     const [promptsArr, setPromptsArr] = useState([]);
     const [recentAnswer, setRecentAnswer] = useState("");
@@ -41,6 +41,7 @@ export default function ProductOptimization() {
 
     // API CALL TO CREATE CORPUS ID
     const startChat = async () => {
+        setCreatingCorpus(true)
         // console.log('yes');
         // setLoading(true)
 
@@ -51,12 +52,17 @@ export default function ProductOptimization() {
             // console.log('Id:', response.data);
             setcorpusID(response.data)
             // setLoading(false)
+            toast.success('Session created successfully!')
+
 
         } catch (error) {
             // error
             console.error('Error starting chat:', error);
+            toast.error('An error occurred while starting the chat:', error);
             // setLoading(false)
         }
+
+        setCreatingCorpus(false)
     }
 
     //HANDLE FILE SELECTION
@@ -88,6 +94,7 @@ export default function ProductOptimization() {
 
         } catch (error) {
             console.log(error);
+            toast.error('An error occurred while uploading the file: ', error);
             // setLoading(false)
         }
 
@@ -102,7 +109,7 @@ export default function ProductOptimization() {
             setPromptsArr([...promptsArr, prompt]);
             const postData = {
                 query: prompt + "? Give me response in JSON & there should be 1 key named response",
-                corpus_id : corpusID
+                corpus_id: corpusID
             };
             setPrompt('');
 
@@ -127,18 +134,17 @@ export default function ProductOptimization() {
 
     return (
         <>
-            <img src={colorBar} alt="eco" style={{ position: 'absolute', top: '-26px', left: '35%' }} />
+            {/*<img src={colorBar} alt="eco" style={{ position: 'absolute', top: '-26px', left: '35%' }} />*/}
 
             <div >
                 <div style={{ height: '10vh', backgroundColor: '#2f3135', }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '100%' }}>
                         <img src={ecofactor} alt="" style={{ height: '4.2rem', marginTop: ' 1.9rem', marginLeft: '1.2rem' }} />
                         <h2 style={textStyle} >Product Optmizer AI Assistant</h2>
-
                     </div>
 
                 </div>
-                <div id='productOptimization' style={{ display: 'flex', height : '90vh' }}>
+                <div id='productOptimization' style={{ display: 'flex', height: '90vh' }}>
 
 
                     <Sidebar collapsed={collapsed} />
@@ -169,29 +175,36 @@ export default function ProductOptimization() {
 
                                             </div>}
                                         </div>
-                                        {corpusID === null ? <button onClick={startChat} style={{ width: '100%', border: '0', backgroundColor: 'transparent', marginTop: '2rem' }}><img src={BTN_START} alt="P-box" style={{ width: '16rem' }} /></button> : <div className="row ms-auto " style={{ marginTop: '2rem' }}>
-                                            <div className="col-4 mx-auto" >
-                                                <div className='mt-3' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1.2rem', borderRight: '1px solid gray' }}>
-                                                    <img src={STEP_ONE} alt="step" style={{ width: '3rem', marginTop: '-29px' }} />
-                                                    <p className=' me-3' style={{ fontFamily: '"Roboto Condensed", sans-serif', fontSize: '0.95rem', }}>Upload your <br /> product <br /> description</p>
-                                                </div>
-                                            </div>
+                                        {/* ... */}
+                                        {corpusID === null
 
-                                            <div className="col-4 mx-auto" >
-                                                <div className='mt-3 pe-4' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1.2rem', borderRight: '1px solid gray' }}>
-                                                    <img src={STEP_TWO} alt="step" style={{ width: '3rem', marginTop: '-29px', marginLeft: '' }} />
-                                                    <p style={{ fontFamily: '"Roboto Condensed", sans-serif', fontSize: '0.95rem', }}>Just say what type of optimization you want to do on product.</p>
+                                            ? creatingCorpus
+                                                ? <button style={{ width: '100%', border: '0', backgroundColor: 'transparent', marginTop: '2rem' }}><Spinner /></button>
+                                                : <button onClick={startChat} style={{ width: '100%', border: '0', backgroundColor: 'transparent', marginTop: '2rem' }}><img src={BTN_START} alt="P-box" style={{ width: '16rem' }} /></button>
+
+                                            : <div className="row ms-auto " style={{ marginTop: '2rem' }}>
+                                                <div className="col-4 mx-auto" >
+                                                    <div className='mt-3' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1.2rem', borderRight: '1px solid gray' }}>
+                                                        <img src={STEP_ONE} alt="step" style={{ width: '3rem', marginTop: '-29px' }} />
+                                                        <p className=' me-3' style={{ fontFamily: '"Roboto Condensed", sans-serif', fontSize: '0.95rem', }}>Upload your <br /> product <br /> description</p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="col-4 mx-auto" >
-                                                <div className='mt-3' style={{ display: 'flex', gap: '1.2rem', }}>
-                                                    <img src={STEP_THREE} alt="step" style={{ width: '3rem', marginTop: '-29px' }} />
-                                                    <p style={{ fontFamily: '"Roboto Condensed", sans-serif', fontSize: '0.95rem', }}>Click Submit to <br /> start getting <br />valuable insights</p>
+
+                                                <div className="col-4 mx-auto" >
+                                                    <div className='mt-3 pe-4' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1.2rem', borderRight: '1px solid gray' }}>
+                                                        <img src={STEP_TWO} alt="step" style={{ width: '3rem', marginTop: '-29px', marginLeft: '' }} />
+                                                        <p style={{ fontFamily: '"Roboto Condensed", sans-serif', fontSize: '0.95rem', }}>Just say what type of optimization you want to do on product.</p>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                                <div className="col-4 mx-auto" >
+                                                    <div className='mt-3' style={{ display: 'flex', gap: '1.2rem', }}>
+                                                        <img src={STEP_THREE} alt="step" style={{ width: '3rem', marginTop: '-29px' }} />
+                                                        <p style={{ fontFamily: '"Roboto Condensed", sans-serif', fontSize: '0.95rem', }}>Click Submit to <br /> start getting <br />valuable insights</p>
+                                                    </div>
+                                                </div>
 
 
-                                        </div>}
+                                            </div>}
                                     </div>
                                 </div>}
 

@@ -164,7 +164,7 @@
   
   @media screen and (min-width: 1259px) and (max-width: 1364px) {
     .sideBar {
-      width: 30vw !important;
+      width: 25% !important;
     }
   }
   
