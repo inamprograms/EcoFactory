@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
@@ -39,7 +40,7 @@
   display: block !important;
 }
 .main-text {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto Condensed", sans-serif !important;
   margin-top: 0.5rem;
 }
 .btnGradient {
@@ -169,34 +170,4 @@ input {
   border-style: solid;
     /* border-radius: 2px; */
   border-color: transparent black transparent transparent;
-}
-
-
-
-
-
-/* MEDIA QUERY */
-
-@media screen and (min-width: 1534px) and (max-width: 1636px) {
-  .sideBar {
-    width: 25vw !important;
-  }
-}
-
-@media screen and (min-width: 1364px) and (max-width: 1534px) {
-  .sideBar {
-    width: 28vw !important;
-  }
-}
-
-@media screen and (min-width: 1259px) and (max-width: 1364px) {
-  .sideBar {
-    width: 30vw !important;
-  }
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1259px) {
-  .sideBar {
-    width: 45vw !important;
-  }
 }

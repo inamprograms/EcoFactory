@@ -30,9 +30,6 @@ def upload():
     file_path = upload_file()
     rag.upload_data(corpus_id, file_path)
     delete_temp_file(file_path)
-<<<<<<< main
-    return "File Uploaded Successfully\n Now you can chat for the product optimization"
-=======
     return "File Uploaded Successfully\n Now you can chat for the product optimization " + str(corpus_id)
     
 
@@ -49,4 +46,3 @@ def delete():
     corpus_id = request.json.get("corpus_id")
     res = rag.delete_corpus(corpus_id)
     return res
->>>>>>> local
