@@ -1,23 +1,15 @@
 import { useState } from 'react';
 import { Sidebar } from 'react-pro-sidebar';
 import BADGE_PRO from "../../Assets/ICONS/BADGE_PRO.svg";
-import colorBar from "../../Assets/ICONS/COLORBAR.png";
-import ICON_CUSTOM_GPT from "../../Assets/ICONS/ICON_CUSTOM_GPT.svg";
-import ICON_CUSTOM_GPT_ACTIVE from "../../Assets/ICONS/ICON_CUSTOM_GPT copy.svg";
 
-import ICON_ESG_ACTIVE from '../../Assets/ICONS/ICON_ESG_GUIDELINE active.svg';
 import ICON_ESG from '../../Assets/ICONS/ICON_ESG_GUIDELINE.svg';
 
-import GPT_AI_ACTIVE from "../../Assets/ICONS/ICON_GREEN_CHATGPT.png";
-import GPT_AI from "../../Assets/ICONS/ICO_WHITE_CHATGPT.png";
 
 
 import ICON_GUIDLINES_ACTIVE from '../../Assets/ICONS/ICON_GUIDELINE_DATABASE active.svg';
 import ICON_GUIDLINES from '../../Assets/ICONS/ICON_GUIDELINE_DATABASE.svg';
 
 
-import ICON_INTEGRATION from '../../Assets/ICONS/ICON_INTEGRATIONS.svg';
-import ICON_INTEGRATION_ACTIVE from '../../Assets/ICONS/ICON_INTEGRATIONS active.svg';
 
 import ICON_MATERIAL_ACTIVE from '../../Assets/ICONS/ICON_MATERIALS active.svg';
 import ICON_MATERIAL from '../../Assets/ICONS/ICON_MATERIALS.svg';
@@ -33,10 +25,8 @@ import ICON_SUN from "../../Assets/ICONS/ICON_SUN.svg";
 import ICON_SUPLIERS_ACTIVE from '../../Assets/ICONS/ICON_SUPPLIERS active.svg';
 import ICON_SUPLIERS from '../../Assets/ICONS/ICON_SUPPLIERS.svg';
 
-import ecofactor from "../../Assets/ICONS/LOGO_ECOFACTOR_FINAL (1).svg";
 
 import { BiDotsHorizontalRounded } from "react-icons/bi";
-import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function SBar({ collapsed }) {
@@ -57,10 +47,10 @@ export default function SBar({ collapsed }) {
 
     const pages = [
         { icon: ICON_OPTIMIZATION, iconActive: ICON_OPTIMIZATION_ACTIVE, title: 'Product Optimizer AI Assistant', to: '/' },
-        { icon: ICON_ESG, iconActive: ICON_ESG_ACTIVE, title: 'ESG Guidlines Advisor', to: '/esg-guidlines' },
-        { icon: GPT_AI, iconActive: GPT_AI_ACTIVE, title: 'Regular ChatGPT 4', to: '/regular-chatgpt4' },
-        { icon: ICON_CUSTOM_GPT, iconActive: ICON_CUSTOM_GPT_ACTIVE, title: 'Create Custom GPT', subTitle: "(Upgrade plan)", disable : true,to: '/pricing/customgpt' },
-        { icon: ICON_INTEGRATION, iconActive: ICON_INTEGRATION_ACTIVE, title: 'Integrations', subTitle: "(Upgrade plan)", disable : true, to: '/pricing/integration' },
+        // { icon: ICON_ESG, iconActive: ICON_ESG_ACTIVE, title: 'ESG Guidlines Advisor', to: '/esg-guidlines' },
+        // { icon: GPT_AI, iconActive: GPT_AI_ACTIVE, title: 'Regular ChatGPT 4', to: '/regular-chatgpt4' },
+        // { icon: ICON_CUSTOM_GPT, iconActive: ICON_CUSTOM_GPT_ACTIVE, title: 'Create Custom GPT', subTitle: "(Upgrade plan)", disable : true,to: '/pricing/customgpt' },
+        // { icon: ICON_INTEGRATION, iconActive: ICON_INTEGRATION_ACTIVE, title: 'Integrations', subTitle: "(Upgrade plan)", disable : true, to: '/pricing/integration' },
       ]
 
     const historyChats = [
@@ -71,7 +61,7 @@ export default function SBar({ collapsed }) {
     ]
 
     return (
-        <Sidebar className='sideBar' collapsed={collapsed} style={{ display: collapsed ? "none" : "block", height : '' , width: '23vw', position: "relative" }}>
+        <Sidebar className='sideBar' collapsed={collapsed} style={{ display: collapsed ? "none" : "block", height : '', width: "25%", position: "relative" }}>
             {/* side bar content  */}
             {/* Aleeza you have to work here */}
             <div className="container-fluid sideBar-scroll " style={{ backgroundColor: "#2f3135", height: '90vh', }}>
@@ -119,7 +109,7 @@ export default function SBar({ collapsed }) {
                         </div>
 
 
-                        <div className="row">
+                        {/* <div className="row">
                             <div className="col mx-3">
                                 <div className={`${showChats ? "mb-2" : "mb-0"}`}>
                                     <button onClick={() => setShowChats((prev) => !prev)} className='border-0 bg-transparent text-white me-4  fs-4'>{showChats ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</button> <span style={{ fontWeight: 'normal', color: "#666666", fontSize: "1.1rem" }}>chats</span>
@@ -138,7 +128,7 @@ export default function SBar({ collapsed }) {
                                     )
                                 })}
                             </div>
-                        </div>
+                        </div> */}
 
                     </div>
                 </div>

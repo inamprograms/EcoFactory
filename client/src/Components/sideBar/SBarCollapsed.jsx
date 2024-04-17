@@ -1,42 +1,30 @@
-import '../../Pages/productOptimization/ProductOptimization.css'
-import BADGE_PRO from "../../Assets/ICONS/BADGE_PRO.svg";
-import colorBar from "../../Assets/ICONS/COLORBAR.png";
 import dark from "../../Assets/ICONS/ICO_DARK_MODE.svg";
 import light from "../../Assets/ICONS/ICO_LIGHT_MODE.svg";
+import '../../Pages/productOptimization/ProductOptimization.css';
 
 
-import ICON_CUSTOM_GPT from "../../Assets/ICONS/ICON_CUSTOM_GPT.svg";
-import ICON_CUSTOM_GPT_ACTIVE from "../../Assets/ICONS/ICON_CUSTOM_GPT copy.svg";
 
-import ICON_ESG_ACTIVE from '../../Assets/ICONS/ICON_ESG_GUIDELINE active.svg';
 import ICON_ESG from '../../Assets/ICONS/ICON_ESG_GUIDELINE.svg';
 
-import GPT_AI_ACTIVE from "../../Assets/ICONS/ICON_GREEN_CHATGPT.png";
-import GPT_AI from "../../Assets/ICONS/ICO_WHITE_CHATGPT.png";
 
 
 import ICON_GUIDLINES_ACTIVE from '../../Assets/ICONS/ICON_GUIDELINE_DATABASE active.svg';
 import ICON_GUIDLINES from '../../Assets/ICONS/ICON_GUIDELINE_DATABASE.svg';
 
 
-import ICON_INTEGRATION from '../../Assets/ICONS/ICON_INTEGRATIONS.svg';
-import ICON_INTEGRATION_ACTIVE from '../../Assets/ICONS/ICON_INTEGRATIONS active.svg';
 
 import ICON_MATERIAL_ACTIVE from '../../Assets/ICONS/ICON_MATERIALS active.svg';
 import ICON_MATERIAL from '../../Assets/ICONS/ICON_MATERIALS.svg';
 
-import ICON_MOON from "../../Assets/ICONS/ICON_MOON.svg";
 import ICON_OPTIMIZATION_ACTIVE from '../../Assets/ICONS/ICON_OPTIMIZER active.svg';
 import ICON_OPTIMIZATION from '../../Assets/ICONS/ICON_OPTIMIZER.svg';
 
 import ICON_PRODUCT_ACTIVE from "../../Assets/ICONS/ICON_PRODUCTS active.svg";
 import ICON_PRODUCT from "../../Assets/ICONS/ICON_PRODUCTS.svg";
 
-import ICON_SUN from "../../Assets/ICONS/ICON_SUN.svg";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import ICON_SUPLIERS_ACTIVE from '../../Assets/ICONS/ICON_SUPPLIERS active.svg';
 import ICON_SUPLIERS from '../../Assets/ICONS/ICON_SUPPLIERS.svg';
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { BiDotsHorizontalRounded } from "react-icons/bi";
 
 const SBarCollapsed = () => {
 
@@ -54,10 +42,10 @@ const SBarCollapsed = () => {
 
   const pages = [
     { icon: ICON_OPTIMIZATION, iconActive: ICON_OPTIMIZATION_ACTIVE, title: 'Product Optimizer AI Assistant', to: '/' },
-    { icon: ICON_ESG, iconActive: ICON_ESG_ACTIVE, title: 'Documentation Checker AI Assistant', to: '/esg-guidlines' },
-    { icon: GPT_AI, iconActive: GPT_AI_ACTIVE, title: 'Regular ChatGPT 4', to: '/regular-chatgpt4' },
-    { icon: ICON_CUSTOM_GPT, iconActive: ICON_CUSTOM_GPT_ACTIVE, class : 'mt-1',  title: 'Upgrade plan to access Custom GPT functionality',  to: '/pricing/customgpt' },
-    { icon: ICON_INTEGRATION, iconActive: ICON_INTEGRATION_ACTIVE, title: 'Upgrade plan to access Integration functionality', to: '/pricing/integration'}
+    // { icon: ICON_ESG, iconActive: ICON_ESG_ACTIVE, title: 'Documentation Checker AI Assistant', to: '/esg-guidlines' },
+    // { icon: GPT_AI, iconActive: GPT_AI_ACTIVE, title: 'Regular ChatGPT 4', to: '/regular-chatgpt4' },
+    // { icon: ICON_CUSTOM_GPT, iconActive: ICON_CUSTOM_GPT_ACTIVE, class : 'mt-1',  title: 'Upgrade plan to access Custom GPT functionality',  to: '/pricing/customgpt' },
+    // { icon: ICON_INTEGRATION, iconActive: ICON_INTEGRATION_ACTIVE, title: 'Upgrade plan to access Integration functionality', to: '/pricing/integration'}
   ]
 
   const historyChats = [

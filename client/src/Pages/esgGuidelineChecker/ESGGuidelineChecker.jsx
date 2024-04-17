@@ -69,7 +69,7 @@ export default function ESGGuidelineChecker() {
                 </div>
 
             </div>
-            <div id='productOptimization' style={{ display: 'flex' }}>
+            <div id='productOptimization' style={{ display: 'flex', height : '90vh' }}>
 
                 <Sidebar collapsed={collapsed} />
                 {collapsed && <SBarCollapsed />}
@@ -90,6 +90,7 @@ export default function ESGGuidelineChecker() {
                                         best practices and ESG guidelines documentation.
                                     </p>
                                     <img src={BOX} alt="P-box" className='' style={{ maxWidth: "650px" }} />
+                                    
 
                                 </div>
                             </div>}
