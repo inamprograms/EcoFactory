@@ -25,6 +25,7 @@ export default function ProductOptimization() {
     const [collapsed, setCollapsed] = useState(false);
     const [loading, setLoading] = useState(false);
     const [creatingCorpus, setCreatingCorpus] = useState(false);
+    const [uploadingFile, setUploadingFile] = useState(false);
     const [prompt, setPrompt] = useState('');
     const [promptsArr, setPromptsArr] = useState([]);
     const [recentAnswer, setRecentAnswer] = useState("");
@@ -84,7 +85,7 @@ export default function ProductOptimization() {
     //HANDLE UPLOAD FILE
     const uploadFile = async () => {
 
-        // setLoading(true)
+        setUploadingFile(true)
 
         try {
             const formData = new FormData();
@@ -108,7 +109,7 @@ export default function ProductOptimization() {
             toast.error('An error occurred while uploading the file: ', error);
             // setLoading(false)
         }
-
+        setUploadingFile(false)
     }
 
 
@@ -275,14 +276,25 @@ export default function ProductOptimization() {
                                             <div className="col"></div>
                                             <div className={`${collapsed ? 'col-9' : 'col-11'} mx-auto`}>
                                                 <div className="input-group mb-3" style={{ border: "1px black solid", borderRadius: "20px", overflow: 'hidden' }}>
-                                                    {!file ? <>
-                                                        <input type="file" id="upload" hidden onChange={handleFileSelect} disabled={corpusID === null} />
-                                                        <div style={{ cursor: 'pointer', backgroundColor: 'white', overflow: 'hidden', fontSize: "1.8rem", borderTopLeftRadius: "20px", borderBottomLeftRadius: "20px", border: "none", borderRight: "none" }}>
-                                                            <label htmlFor="upload" className=' input-group-text' style={{ color: corpusID === null ? '#6666' : '#494c51', backgroundColor: 'white', height: '100%', cursor: corpusID === null ? 'not-allowed' : 'pointer' }}> <IoMdAttach className="fs-2" style={{ backgroundColor: 'transparent' }} /></label>
-                                                        </div>
-                                                    </> : <span className="input-group-text" id="basic-addon1" style={{ backgroundColor: "white", }}>
-                                                        <button onClick={uploadFile} className='btn btnGradient' style={{ backgroundColor: "#0076c3", }}><FaUpload /> </button>
-                                                    </span>}
+                                                    {
+                                                        !file ?
+                                                            <>
+                                                                <input type="file" id="upload" hidden onChange={handleFileSelect} disabled={corpusID === null} />
+                                                                <div style={{ cursor: 'pointer', backgroundColor: 'white', overflow: 'hidden', fontSize: "1.8rem", borderTopLeftRadius: "20px", borderBottomLeftRadius: "20px", border: "none", borderRight: "none" }}>
+                                                                    <label htmlFor="upload" className=' input-group-text' style={{ color: corpusID === null ? '#6666' : '#494c51', backgroundColor: 'white', height: '100%', cursor: corpusID === null ? 'not-allowed' : 'pointer' }}> <IoMdAttach className="fs-2" style={{ backgroundColor: 'transparent' }} /></label>
+                                                                </div>
+                                                            </>
+                                                            :
+                                                            uploadingFile
+                                                                ?
+                                                                <span className="input-group-text" id="basic-addon1" style={{ backgroundColor: "white", }}>
+                                                                    <button onClick={uploadFile} className='btn btnGradient' style={{ backgroundColor: "#0076c3", }}><Spinner /> </button>
+                                                                </span>
+                                                                :
+                                                                <span className="input-group-text" id="basic-addon1" style={{ backgroundColor: "white", }}>
+                                                                    <button onClick={uploadFile} className='btn btnGradient' style={{ backgroundColor: "#0076c3", }}><FaUpload /> </button>
+                                                                </span>
+                                                    }
                                                     <input value={prompt} onChange={(e) => setPrompt(e.target.value)} type="text" className="form-control " placeholder="Please type or say what kind of optimizations you are looking for ?" aria-label="Username" aria-describedby="basic-addon1" />
                                                     <span className="input-group-text" id="basic-addon1" style={{ backgroundColor: "white", borderTopRightRadius: "20px", borderBottomRightRadius: "20px", cursor: enableChat ? 'not-allowed' : 'pointer' }}>
                                                         <button disabled={enableChat} onClick={handleSubmit} className='btn btnGradient' style={{ backgroundColor: "#0076c3" }}>{loading ? <Spinner /> : 'Submit'}</button>
