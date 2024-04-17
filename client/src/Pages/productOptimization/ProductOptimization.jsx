@@ -4,6 +4,7 @@ import { FaUpload } from "react-icons/fa";
 import { IoMdAttach } from "react-icons/io";
 import { ThreeDots } from "react-loader-spinner";
 import { toast } from 'react-toastify';
+import fileToDownload from "../../Assets/HELMET_DATASET_US_v1.txt";
 import BTN_START from '../../Assets/ICONS/BT_START_CHAT.svg';
 import GUIDE_DOC from '../../Assets/ICONS/CHAT_ASSETS-page-1.png';
 import cogwheel from "../../Assets/ICONS/ICON_ECOFACTOR.svg";
@@ -20,7 +21,6 @@ import './ProductOptimization.css'; // Import CSS file for additional styles
 
 
 
-
 export default function ProductOptimization() {
     const [collapsed, setCollapsed] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -29,6 +29,17 @@ export default function ProductOptimization() {
     const [promptsArr, setPromptsArr] = useState([]);
     const [recentAnswer, setRecentAnswer] = useState("");
     const [error, setError] = useState(null);
+
+
+    // Download file handler
+    const handleDownload = () => {
+        // Replace 'example.com/file.pdf' with the actual URL of your file
+        const anchor = document.createElement('a');
+        anchor.href = fileToDownload;
+        anchor.download = 'HELMET_DATASET_US_v1.txt'; // Name of the downloaded file
+        anchor.click();
+        toast.success('HELMET_DATASET_US_v1.txt file downloaded successfully!')
+    };
 
 
     // STATE FOR CORPUS ID AND CHAT
@@ -169,10 +180,9 @@ export default function ProductOptimization() {
 
                                         <div style={{ position: 'relative', marginTop: '2rem' }}>
                                             <strong className='text-black fs-5 fw-bold' style={{ fontFamily: '"Roboto Condensed", sans-serif' }}>To start a new chat, simply click the button below:</strong>
-                                            {corpusID !== null && <div className="bg-light pt-2 px-3 d-flex gap-2 rounded-sm" style={{ width: 'max-content', border: '1px solid light-gray', position: 'absolute', top: '-10px', left: '110%' }}>
+                                            {corpusID !== null && <div className="bg-light pt-2 px-3 d-flex gap-2 rounded-sm" onClick={handleDownload} style={{ width: 'max-content', cursor: "pointer", border: '1px solid light-gray', position: 'absolute', top: '-10px', left: '110%' }}>
                                                 <img src={GUIDE_DOC} alt="guide-doc" style={{ height: '3rem' }} />
                                                 <p style={{ fontFamily: '"Roboto Condensed", sans-serif', fontSize: '.6rem' }}>For quick tests, optionally you <br /> can download a product <br /> description example here.</p>
-
                                             </div>}
                                         </div>
                                         {/* ... */}
