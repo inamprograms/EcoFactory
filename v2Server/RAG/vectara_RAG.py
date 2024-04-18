@@ -3,7 +3,8 @@ from dotenv import load_dotenv
 import os
 import openai
 from openai import OpenAI
-
+import requests
+import json
 from consts.prompts import ProductDescription
 
 class VectaraRAG:
@@ -35,6 +36,25 @@ class VectaraRAG:
         """
         client = self.create_client()
         client.reset_corpus(corpus_id)
+    
+    def delete_corpus(self, corpus_id):
+
+        url = "https://api.vectara.io/v1/delete-corpus"
+
+        payload = json.dumps({
+        "corpusId": corpus_id
+        })
+        headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'x-api-key': self.api_key
+        }
+
+        response = requests.request("POST", url, headers=headers, data=payload)
+        print(response.text)
+        res = json.loads(response.text)
+        res = res["status"]["statusDetail"]
+        return res
 
     def upload_data(self, corpus_id, file_path):
         """
