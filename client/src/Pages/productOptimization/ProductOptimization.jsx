@@ -1,5 +1,5 @@
 import axios from 'axios'; // Import axios for making HTTP requests
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { FaUpload } from "react-icons/fa";
 import { IoMdAttach } from "react-icons/io";
 import { ThreeDots } from "react-loader-spinner";
@@ -30,7 +30,35 @@ export default function ProductOptimization() {
     const [promptsArr, setPromptsArr] = useState([]);
     const [recentAnswer, setRecentAnswer] = useState("");
     const [error, setError] = useState(null);
+    // STATE FOR CORPUS ID AND CHAT
+    const [corpusID, setcorpusID] = useState(null);
+    const [enableChat, setenableChat] = useState(true);
+    const [file, setfile] = useState(null);
 
+    // useEffect(() => {
+    //     // Attach event listener when component mounts
+    //     window.addEventListener("beforeunload", handleBeforeUnload);
+
+    //     // Cleanup function to remove event listener when component unmounts
+    //     return () => {
+    //         window.removeEventListener("beforeunload", handleBeforeUnload);
+    //     };
+    // }, []);
+
+    // const handleBeforeUnload = async (event) => {
+    //     // Call your API to delete the corpus before the user leaves the page
+    //     alert("good by ecofactor")
+    //     if (corpusID) {
+    //         try {
+    //             const response = await axios.post('https://ecofactor.onrender.com/api/delete_corpus', {
+    //                 "corpus_id": corpusID
+    //             });
+    //             console.log("Session deleted successfully!");
+    //         } catch (error) {
+    //             console.error("Error deleting session:", error);
+    //         }
+    //     }
+    // };
 
     // Download file handler
     const handleDownload = () => {
@@ -43,13 +71,7 @@ export default function ProductOptimization() {
     };
 
 
-    // STATE FOR CORPUS ID AND CHAT
-    const [corpusID, setcorpusID] = useState(null);
-    const [enableChat, setenableChat] = useState(true);
-    const [file, setfile] = useState(null);
 
-
-    console.log(file);
 
     // API CALL TO CREATE CORPUS ID
     const startChat = async () => {
@@ -61,10 +83,11 @@ export default function ProductOptimization() {
             const response = await axios.get('https://ecofactor.onrender.com/api/create_corpus');
 
             // successful response
-            // console.log('Id:', response.data);
+            console.log('response.data:', response.data);
             setcorpusID(response.data)
             // setLoading(false)
             toast.success('Session created successfully!')
+            alert("response.data : ", response.data)
 
 
         } catch (error) {
@@ -91,6 +114,7 @@ export default function ProductOptimization() {
             const formData = new FormData();
             formData.append('file', file);
             formData.append('corpus_id', corpusID)
+            console.log("corpusID : ", corpusID);
 
             const response = await axios.post('https://ecofactor.onrender.com/api/upload_file', formData, {
                 headers: {
@@ -119,6 +143,7 @@ export default function ProductOptimization() {
         if (prompt.trim() !== '') {
             console.log("prompt -> ", prompt);
             setPromptsArr([...promptsArr, prompt]);
+            console.log("corpus id : ", corpusID);
             const postData = {
                 query: prompt + "? Give me response in JSON & there should be 1 key named response",
                 corpus_id: corpusID
@@ -282,7 +307,7 @@ export default function ProductOptimization() {
                                                                 <input type="file" id="upload" hidden onChange={handleFileSelect} disabled={corpusID === null} />
                                                                 <div style={{ cursor: 'pointer', backgroundColor: 'white', overflow: 'hidden', fontSize: "1.8rem", borderTopLeftRadius: "20px", borderBottomLeftRadius: "20px", border: "none", borderRight: "none" }}>
                                                                     <label htmlFor="upload" className=' input-group-text' style={{ color: corpusID === null ? '#6666' : '#494c51', backgroundColor: 'white', height: '100%', cursor: corpusID === null ? 'not-allowed' : 'pointer' }}> <IoMdAttach className="fs-2" style={{ backgroundColor: 'transparent' }} /></label>
-                                                                </div> 
+                                                                </div>
                                                             </>
                                                             :
                                                             uploadingFile
