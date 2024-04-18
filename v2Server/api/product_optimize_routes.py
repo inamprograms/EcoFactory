@@ -7,7 +7,7 @@ from utils.file_utils import *
 from dotenv import load_dotenv
 
 load_dotenv()
-corpus_id = os.getenv("VECTARA_CORPUS_ID")
+# corpus_id = os.getenv("VECTARA_CORPUS_ID")
 
 rag = VectaraRAG()
 product_optimize_routes = Blueprint('product_optimize_routes', __name__)
@@ -16,6 +16,8 @@ product_optimize_routes = Blueprint('product_optimize_routes', __name__)
 def optimize_product():
     
     description = request.json.get('query')
+    corpus_id = request.json.get('corpus_id')
+    print(corpus_id)
     print("Description: " , description)
     summary = rag.query_vectara(corpus_id, description, 3, "en")
     print("Vectara response: ",summary)
@@ -26,7 +28,8 @@ def optimize_product():
 
 @product_optimize_routes.route('/upload_file', methods=['POST'])
 def upload():
-    
+    corpus_id = request.form['corpus_id']
+    print(corpus_id)
     file_path = upload_file()
     rag.upload_data(corpus_id, file_path)
     delete_temp_file(file_path)
@@ -44,5 +47,6 @@ def create():
 def delete():
     
     corpus_id = request.json.get("corpus_id")
+    print(corpus_id)
     res = rag.delete_corpus(corpus_id)
     return res
