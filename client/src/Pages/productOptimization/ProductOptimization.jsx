@@ -47,7 +47,6 @@ export default function ProductOptimization() {
 
     // const handleBeforeUnload = async (event) => {
     //     // Call your API to delete the corpus before the user leaves the page
-    //     alert("good by ecofactor")
     //     if (corpusID) {
     //         try {
     //             const response = await axios.post('https://ecofactor.onrender.com/api/delete_corpus', {
@@ -87,7 +86,6 @@ export default function ProductOptimization() {
             setcorpusID(response.data)
             // setLoading(false)
             toast.success('Session created successfully!')
-            alert("response.data : ", response.data)
 
 
         } catch (error) {
