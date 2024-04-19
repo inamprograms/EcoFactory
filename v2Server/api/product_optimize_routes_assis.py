@@ -3,7 +3,7 @@
 from flask import Blueprint, request, jsonify
 import os
 from dotenv import load_dotenv
-# from assistant.assistant import EcofactorAssistant
+# from assistant.openAI_assistant import EcofactorAssistant
 load_dotenv()
 
 # assistant = EcofactorAssistant()
