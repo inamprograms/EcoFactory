@@ -2,10 +2,15 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from api.product_optimize_routes import product_optimize_routes
 
+from api.product_optimize_routes_assis import product_optimize_routes_assis
+from api.esg_guidelines_checker_routes import esg_guidelines_checker_routes
+
 app = Flask(__name__)
 CORS(app)
 
 app.register_blueprint(product_optimize_routes, url_prefix='/api')
+app.register_blueprint(product_optimize_routes_assis, url_prefix='/api')
+app.register_blueprint(esg_guidelines_checker_routes, url_prefix='/api')
 
 @app.route('/')
 def wellcome():
