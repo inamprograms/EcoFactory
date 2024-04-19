@@ -5,7 +5,7 @@ import openai
 from openai import OpenAI
 import requests
 import json
-from consts.prompts import ProductDescription
+from consts.prompts import promptProductOptimization
 
 class VectaraRAG:
     def __init__(self):
@@ -83,7 +83,7 @@ class VectaraRAG:
             messages=[
                 {"role": "user",
                 "content": 
-                f"Follow these instructions: {ProductDescription}\n"
+                f"Follow these instructions: {promptProductOptimization}\n"
                 f"We have provided context information below. \n"
                 f"---------------------\n"
                 f"{summary}"
