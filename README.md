@@ -58,7 +58,7 @@
 Hello! Welcome to EcoFactor - a chatbot that helps manufacturers select more sustainable and cost-effective materials and processes for their products, ensuring compliance with ESG standards. It offers a significant variety of resources and AI assistants that together provide a set of features oriented towards optimizing manufacturing processes, including product optimization, material replacement, and studying ESG documentation. A distinctive feature of ECOFACTOR is the combined use of autonomous AI assistants, responsible for navigating the internet, locating and filtering relevant information about the user's products and processes, as well as the supplier directory, dynamically and autonomously fed by Ecofactor's virtual assistant. 
 
 <img src="./projectImages/EcoFactor.jpg">
-<img src="./projectImages/Team.jpg">
+<img src="./projectImages/ecofactorteam.jpg">
 <img src="./projectImages/Technologies.jpg">
 <img src="./projectImages/Challanges.jpg">
 <img src="./projectImages/Features.jpg">
