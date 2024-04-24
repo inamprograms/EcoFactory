@@ -21,25 +21,25 @@
                     <sub><b>Katrina Cekmarjova</b></sub>
                 </a> 
             </td>
-          <td align="center">
-                <a href="https://www.linkedin.com/in/rizwan-zhad-54812b171/">
-                    <img src="https://media.licdn.com/dms/image/D4D03AQE8Cw11_Rl2jA/profile-displayphoto-shrink_400_400/0/1708821488131?e=1715212800&v=beta&t=7T2o19S5w1CU1ZV2cq7WndjiJ2-UiYXZYMXW3SqRftQ" width="100px;" alt="Rizwan Zhad "/>
-                    <br />
-                    <sub><b>Rizwan Zhad </b></sub>
-                </a> 
-            </td>
-            <td align="center">
-          <a href="https://github.com/inamprograms">
-                    <img src="https://avatars.githubusercontent.com/u/113470083?v=4" width="100px;" alt="Inam Ul Rehman"/>
-                    <br />
-                    <sub><b>Inam Ul Rehman</b></sub>
-                </a> 
-            </td>
             <td align="center">
                 <a href="https://github.com/Ahmadjajja">
                     <img src="https://avatars.githubusercontent.com/u/86593662?v=4" width="100px;" alt="Ahmad Jajja"/>
                     <br />
                     <sub><b>Ahmad Jajja</b></sub>
+                </a> 
+            </td>
+          <td align="center">
+                <a href="https://www.linkedin.com/in/aymen-noor/">
+                    <img src="https://media.licdn.com/dms/image/D4D03AQF-QoehWfkGBg/profile-displayphoto-shrink_800_800/0/1706020377873?e=1719446400&v=beta&t=3NKUYJ3nhKZR0bW59JoT2YpgOq7NYj5hJSX8rASMZiU" width="100px;" alt="Aymen Noor"/>
+                    <br />
+                    <sub><b>Aymen Noor</b></sub>
+                </a> 
+            </td>
+            <td align="center">
+                <a href="https://github.com/inamprograms">
+                    <img src="https://avatars.githubusercontent.com/u/113470083?v=4" width="100px;" alt="Inam Ul Rehman"/>
+                    <br />
+                    <sub><b>Inam Ul Rehman</b></sub>
                 </a> 
             </td>
             <td align="center">
