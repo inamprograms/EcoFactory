@@ -1,0 +1,10 @@
+lru -> catch
+83,160,2
+quality is enemy of success
+frequency counting algo
+bucket sort algo: Q347 Top  frequent element
+touch flag algo : sort colors
+->>rustup docs --book
+
+( 30 min typing, daily 1 post(5 min) comment(5 min) and 1 artical on linkedin will sure you know how to communicate and write emails reardless how mutch better to write how people will act )
+->>make list of your taks(priortise your tasks like what is for google), cut social life

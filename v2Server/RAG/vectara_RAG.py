@@ -63,7 +63,7 @@ class VectaraRAG:
         client = self.create_client()
         client.upload(corpus_id, file_path)
 
-    def query_vectara(self, corpus_id, question, top_k=5, lang="en"):
+    def query_vectara(self, corpus_id, question, top_k=20, lang="en"):
         """
         Query the Vectara engine.
         """
@@ -84,7 +84,7 @@ class VectaraRAG:
                 {"role": "user",
                 "content": 
                 f"Follow these instructions: {promptProductOptimization}\n"
-                f"We have provided context information below. \n"
+                f"We have provided you the description of the product below \n"
                 f"---------------------\n"
                 f"{summary}"
                 f"\n---------------------\n"
