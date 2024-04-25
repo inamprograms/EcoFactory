@@ -30,7 +30,7 @@ const SBarCollapsed = () => {
 
   const path = useLocation().pathname
   const navigate = useNavigate()
-  console.log(path);
+  // console.log(path);
 
 
   const inventoryData = [
