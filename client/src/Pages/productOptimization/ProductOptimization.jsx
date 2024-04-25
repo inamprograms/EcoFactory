@@ -1,4 +1,5 @@
 import axios from 'axios'; // Import axios for making HTTP requests
+import Markdown from 'markdown-to-jsx';
 import React, { useState } from 'react';
 import { FaUpload } from "react-icons/fa";
 import { IoMdAttach } from "react-icons/io";
@@ -17,7 +18,6 @@ import Sidebar from '../../Components/sideBar/SBar';
 import SBarCollapsed from '../../Components/sideBar/SBarCollapsed';
 import chatgptLogo from "./CHATGPT_LOGO_WHITE.svg";
 import './ProductOptimization.css'; // Import CSS file for additional styles
-import Markdown from 'markdown-to-jsx';
 
 
 
@@ -49,7 +49,6 @@ export default function ProductOptimization() {
 
     // const handleBeforeUnload = async (event) => {
     //     // Call your API to delete the corpus before the user leaves the page
-    //     alert("good by ecofactor")
     //     if (corpusID) {
     //         try {
     //             const response = await axios.post('https://ecofactor.onrender.com/api/delete_corpus', {
@@ -89,7 +88,6 @@ export default function ProductOptimization() {
             setcorpusID(response.data)
             // setLoading(false)
             toast.success('Session created successfully!')
-            alert("response.data : ", response.data)
 
 
         } catch (error) {
