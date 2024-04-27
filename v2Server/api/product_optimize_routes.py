@@ -16,12 +16,15 @@ product_optimize_routes = Blueprint('product_optimize_routes', __name__)
 def optimize_product():
     
     description = request.json.get('query')
-    corpus_id = request.json.get('corpus_id')
-    print(corpus_id)
+    contents = request.json.get('contents')
+    # corpus_id = request.json.get('corpus_id')
+    # print(corpus_id)
+    # print(contents)
     print("Description: " , description)
-    summary = rag.query_vectara(corpus_id, description, 3, "en")
-    print("Vectara response: ",summary)
-    response = rag.ask_question_with_summary(summary, description)
+    # summary = rag.query_vectara(corpus_id, description, 3, "en")
+    # print("Vectara response: ",summary)
+    # response = rag.ask_question_with_summary(summary, description)
+    response = rag.ask_question_with_summary(contents, description)
     print("LLM response: ", response)
     
     return response , 200
@@ -31,9 +34,12 @@ def upload():
     corpus_id = request.form['corpus_id']
     print(corpus_id)
     file_path = upload_file()
-    rag.upload_data(corpus_id, file_path)
-    delete_temp_file(file_path)
-    return "File Uploaded Successfully\n Now you can chat for the product optimization " + str(corpus_id)
+    contents = read_file_contents(file_path)
+    # print(contents)
+    # rag.upload_data(corpus_id, file_path)
+    # delete_temp_file(file_path)
+    # return "File Uploaded Successfully\n Now you can chat for the product optimization " + str(corpus_id)
+    return contents
     
 
 @product_optimize_routes.route('/create_corpus', methods=['GET'])

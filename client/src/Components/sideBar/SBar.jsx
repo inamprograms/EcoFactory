@@ -35,7 +35,6 @@ export default function SBar({ collapsed }) {
 
     const path = useLocation().pathname
     const navigate = useNavigate()
-    console.log(path);
 
 
     const inventoryData = [

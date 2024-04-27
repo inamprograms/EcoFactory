@@ -1,4 +1,5 @@
 import axios from 'axios'; // Import axios for making HTTP requests
+import Markdown from 'markdown-to-jsx';
 import React, { useState } from 'react';
 import { FaUpload } from "react-icons/fa";
 import { IoMdAttach } from "react-icons/io";
@@ -34,6 +35,7 @@ export default function ProductOptimization() {
     const [corpusID, setcorpusID] = useState(null);
     const [enableChat, setenableChat] = useState(true);
     const [file, setfile] = useState(null);
+    const [content, setcontent] = useState('');
 
     // useEffect(() => {
     //     // Attach event listener when component mounts
@@ -58,7 +60,7 @@ export default function ProductOptimization() {
     //         }
     //     }
     // };
-
+    
     // Download file handler
     const handleDownload = () => {
         // Replace 'example.com/file.pdf' with the actual URL of your file
@@ -114,13 +116,14 @@ export default function ProductOptimization() {
             formData.append('corpus_id', corpusID)
             console.log("corpusID : ", corpusID);
 
-            const response = await axios.post('https://ecofactor.onrender.com/api/upload_file', formData, {
+            const response = await axios.post('http://127.0.0.1:5000/api/upload_file', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             })
 
-            // console.log(response.data);
+            console.log(response.data);
+            setcontent(response.data)
             // setLoading(false)
             toast.success('File uploaded successfully!')
             setfile(null)
@@ -143,8 +146,10 @@ export default function ProductOptimization() {
             setPromptsArr([...promptsArr, prompt]);
             console.log("corpus id : ", corpusID);
             const postData = {
-                query: prompt + "? Give me response in JSON & there should be 1 key named response",
-                corpus_id: corpusID
+                query: prompt,
+                // corpus_id: corpusID
+                contents: content
+
             };
             setPrompt('');
 
@@ -152,10 +157,15 @@ export default function ProductOptimization() {
             // API Calling and getting response code
             try {
                 // Make a POST request using axios                             
-                const response = await axios.post('https://ecofactor.onrender.com/api/product_optimize', postData);
-                console.log("query response -> ", response.data.response);
-                setRecentAnswer(response.data.response);
-                setPromptsArr(prevPromptsArr => [...prevPromptsArr, response.data.response]);
+                const response = await axios.post('http://127.0.0.1:5000/api/product_optimize', postData);
+                console.log("query response -> ", response.data);
+                //                 const markdownResponse = `
+                // \`
+                // ${response.data}
+                // \`
+                // `;
+                setRecentAnswer(response.data);
+                setPromptsArr(prevPromptsArr => [...prevPromptsArr, response.data]);
                 setLoading(false);
                 setError(null); // Reset error state
             } catch (error) {
@@ -256,7 +266,7 @@ export default function ProductOptimization() {
                                                                 <div className="row p-0 m-0 " style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                                                                     <img src="https://camo.githubusercontent.com/1e6de73a5a5d1800c3f18f294e4b019466d6daa7ac4ddbe713afc5e3ac062547/68747470733a2f2f6d656469612e6c6963646e2e636f6d2f646d732f696d6167652f4434443033415148556d6b357863444d6574412f70726f66696c652d646973706c617970686f746f2d736872696e6b5f3430305f3430302f302f313639333430353830343034313f653d3137313532313238303026763d6265746126743d307a4b74676b73684967694439786d6e456a425a7158755731343547774e5676386f6d3958576b424f7259" className='rounded-circle mb-auto ms-auto ' style={profileUserStyle} alt="" />
                                                                     <div className="col-9 shadow p-3 mb-5 bg-body-tertiary rounded " >
-                                                                        {prom}
+                                                                       {prom}
                                                                     </div>
                                                                     <div className="col-3"></div>
 
@@ -264,7 +274,7 @@ export default function ProductOptimization() {
                                                                 :
                                                                 <div className="row " style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                                                                     <img src={chatgptLogo} className='rounded-circle mb-auto me-2' style={profileStyle} alt="" />
-                                                                    <div className="col-9 me-auto shadow-none p-3 mb-5 bg-body-tertiary rounded">{prom}</div>
+                                                                    <div className="col-9 me-auto shadow-none p-3 mb-5 bg-body-tertiary rounded"> <Markdown>{prom}</Markdown> </div>
                                                                     <div className="col-3"></div>
                                                                 </div>
                                                             }
