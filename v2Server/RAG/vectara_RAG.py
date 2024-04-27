@@ -88,7 +88,7 @@ class VectaraRAG:
                 f"---------------------\n"
                 f"{summary}"
                 f"\n---------------------\n"
-                f"Follow the instructions and context provided then answer this : {question}"
+                f"Follow the instructions and use description provided then answer this : {question}"
                 }
             ]
         )
