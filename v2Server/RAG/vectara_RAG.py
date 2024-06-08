@@ -79,7 +79,8 @@ class VectaraRAG:
         openai.api_key=self.openai_api_key
         client = OpenAI()
         completion = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            # model="gpt-3.5-turbo",
+            model="gpt-4o",
             messages=[
                 {"role": "user",
                 "content": 
