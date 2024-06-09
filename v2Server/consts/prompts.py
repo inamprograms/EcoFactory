@@ -19,7 +19,7 @@ veja abaixo alternativas interressantes de como tornar o produto XXX mais susten
 💡 **Sugestão complementar:**  
 <inserir aqui a [sugestao_complementar]>'.  
   
-🎯 **MENU**  <USE MARKDOWN>
+🎯 **MENU:**  <USE MARKDOWN>
 **Digite [A]** para ver mais Alternativas.
 **Digite [C]** para consultar Certificações relacionadas.
 **Digite [D]** para obter dicas de Design e Otimizacao do Produto.
@@ -40,7 +40,7 @@ See below the list of 3 alternative more sustainable and economical materials fo
   
 **3- Material 3 name:** <describe it here>.  
 
-🎯 **MENU**  <USE MARKDOWN>
+🎯 **MENU:**  <USE MARKDOWN>
 **Type [A]** to see more Alternatives.  
 **Type [C]** to consult related Certifications.  
 **Type [D]** to get Design and Product Optimization tips.  
@@ -61,7 +61,7 @@ veja abaixo algumas certificações interessantes que estão relacionadas ao seu
   
 **3- inserir aqui Nome certificação complementar 3:** <descrever aqui>.  
 
-🎯 **MENU**  <USE MARKDOWN>
+🎯 **MENU:**  <USE MARKDOWN>
 **Digite [C]** para ver mais Certificações.  
 **Digite [D]** para obter dicas de Design e Otimizacao do Produto.  
 **Faça novas perguntas** para obtrer mais detalhes.  
@@ -83,7 +83,7 @@ veja abaixo algumas dicas interessantes de Design o Otimização desse produto..
   
 ❔ **Qual delas você julga mais interessante, para que possamos juntos explora-las?**.  
   
-🎯 **MENU**  <USE MARKDOWN>
+🎯 **MENU:**  <USE MARKDOWN>
 **Digite [C]** para ver Certificações relacionadas.  
 **Digite [D]** para obter mais dicas de Design e Otimizacao do Produto.  
 **Faça novas perguntas** para obtrer mais detalhes.  
